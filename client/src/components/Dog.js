@@ -7,7 +7,7 @@ function Dog(){
         name: "",
         breed: "",
         age: 0,
-        color: "",
+        about: "",
         user: {
             firstname: "",
             lastname: ""

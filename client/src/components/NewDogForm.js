@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Input } from "../styles";
+// import { Button, input } from "../styles";
 
 function NewDogForm({ member, onAddDog }) {
   const [formData, setFormData] = useState({
@@ -40,7 +40,7 @@ function NewDogForm({ member, onAddDog }) {
     <form className="form" onSubmit={handleSubmit}>
       <h3>Add Your Dog</h3>
       Dog's name:{" "}
-      <Input
+      <input
         type="text"
         name="name"
         value={formData.name}
@@ -48,7 +48,7 @@ function NewDogForm({ member, onAddDog }) {
       />
       <br />
       Breed:{" "}
-      <Input
+      <input
         type="text"
         name="breed"
         value={formData.breed}
@@ -56,7 +56,7 @@ function NewDogForm({ member, onAddDog }) {
       />
       <br />
       Age:{" "}
-      <Input
+      <input
         type="number"
         name="age"
         value={formData.age}
@@ -64,16 +64,16 @@ function NewDogForm({ member, onAddDog }) {
       />
       <br />
       Color:{" "}
-      <Input
+      <input
         type="text"
         name="color"
         value={formData.color}
         onChange={handleChange}
       />
       <br />
-      <Button class="btn btn-outline-danger btn-sm" type="submit">
+      <button class="btn btn-outline-danger btn-sm" type="submit">
         Add Your Dog
-      </Button>
+      </button>
     </form>
   );
 }

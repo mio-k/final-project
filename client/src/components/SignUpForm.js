@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Error, Input, FormField, Label } from "../styles";
+// import { Button, Error, input, FormField, Label } from "../styles";
 
 function SignUpForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -38,62 +38,62 @@ function SignUpForm({ onLogin }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <FormField>
-        <Label htmlFor="username">Username</Label>
-        <Input
+      <formfield>
+        <label htmlFor="username">Username</label>
+        <input
           type="text"
           id="username"
           autoComplete="off"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-      </FormField>
-      <FormField>
-        <Label htmlFor="password">Password</Label>
-        <Input
+      </formfield>
+      <formfield>
+        <label htmlFor="password">Password</label>
+        <input
           type="password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
         />
-      </FormField>
-      <FormField>
-        <Label htmlFor="password">Password Confirmation</Label>
-        <Input
+      </formfield>
+      <formfield>
+        <label htmlFor="password">Password Confirmation</label>
+        <input
           type="password"
           id="password_confirmation"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
-      </FormField>
-      <FormField>
-        <Label htmlFor="firstname">First Name</Label>
-        <Input
+      </formfield>
+      <formfield>
+        <label htmlFor="firstname">First Name</label>
+        <input
           type="text"
           id="firstname"
           value={firstname}
           onChange={(e) => setFirstname(e.target.value)}
         />
-      </FormField>
-      <FormField>
-        <Label htmlFor="lastname">Last Name</Label>
-        <Input
+      </formfield>
+      <formfield>
+        <label htmlFor="lastname">Last Name</label>
+        <input
           type="text"
           id="lastname"
           value={lastname}
           onChange={(e) => setLastname(e.target.value)}
         />
-      </FormField>
-      <FormField>
-        <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
-      </FormField>
-      <FormField>
+      </formfield>
+      <formfield>
+        <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+      </formfield>
+      <formfield>
         {errors.map((err) => (
-          <Error key={err}>{err}</Error>
+          <error key={err}>{err}</error>
         ))}
-      </FormField>
+      </formfield>
     </form>
   );
 }

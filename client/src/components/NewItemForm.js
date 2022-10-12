@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input } from "../styles";
+// import { Input } from "../styles";
 import { useNavigate } from "react-router-dom";
 // import { MultiSelect } from "react-multi-select-component";
 
@@ -68,7 +68,7 @@ function NewItemForm({ onAddItem, user, tags }) {
       </p>
       <p>
         Item:{" "}
-        <Input
+        <input
           type="text"
           name="name"
           value={formData.name}
@@ -77,7 +77,7 @@ function NewItemForm({ onAddItem, user, tags }) {
       </p>
       <p>
         Description:{" "}
-        <Input
+        <input
           type="text"
           name="description"
           value={formData.description}

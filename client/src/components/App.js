@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes, Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
-import Login from "../pages/Login";
+import Login from "./Login";
 import DogList from "./DogList";
 import UserList from "./UserList";
 import ItemList from "./ItemList";
@@ -11,7 +11,7 @@ import User from "./User";
 import Dog from "./Dog";
 import Item from "./Item";
 import EditItem from "./EditItem";
-import StyleGallery from "./StyleGallery";
+// import StyleGallery from "./StyleGallery";
 import Home from "./Home";
 
 function App() {
