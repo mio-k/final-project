@@ -8,7 +8,7 @@ function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <wrapper>
+    <>
       <h1>Dogpod Exchange</h1>
       <p>Please log in to see the members only content.</p>
       {showLogin ? (
@@ -34,7 +34,7 @@ function Login({ onLogin }) {
           </p>
         </>
       )}
-    </wrapper>
+    </>
   );
 }
 

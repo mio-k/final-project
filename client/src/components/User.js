@@ -13,7 +13,7 @@ function User() {
       name: "",
       breed: "",
       age: "",
-      color: "",
+      about: "",
     },
     items: [],
   });
@@ -39,7 +39,7 @@ function User() {
           <p>Name: {member.dog.name}</p>
           <p>Breed: {member.dog.breed}</p>
           <p>Age: {member.dog.age}</p>
-          <p>Color: {member.dog.color}</p>
+          <p>About: {member.dog.about}</p>
         </div>
       ) : (
         <NewDogForm member={member} onAddDog={onAddDog} />
@@ -48,13 +48,13 @@ function User() {
       {member.items.length !== 0 ? (
         <ul>
           {member.items.map((item) => (
-            <Link
+            <link
               style={{ display: "block", margin: "1rem 0" }}
               to={`/items/${item.id}`}
               key={item.id}
             >
               <li>{item.name}</li>
-            </Link>
+            </link>
           ))}
         </ul>
       ) : (

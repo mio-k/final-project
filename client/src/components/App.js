@@ -3,7 +3,6 @@ import { Route, Routes, Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "./Login";
 import DogList from "./DogList";
-import UserList from "./UserList";
 import ItemList from "./ItemList";
 import NewItemForm from "./NewItemForm";
 import NewDogForm from "./NewDogForm";
@@ -11,7 +10,7 @@ import User from "./User";
 import Dog from "./Dog";
 import Item from "./Item";
 import EditItem from "./EditItem";
-// import StyleGallery from "./StyleGallery";
+import StyleGallery from "./StyleGallery";
 import Home from "./Home";
 
 function App() {
@@ -65,7 +64,6 @@ function App() {
         <Routes>
           <Route path="doglist" element={<DogList />} />
           <Route path="/" element={<Home />} />
-          <Route path="/userlist" element={<UserList />} />
           <Route path="itemList" element={<ItemList items={items} />} />
           <Route
             path="newitemform"
@@ -81,7 +79,7 @@ function App() {
             element={<Item onDeleteItem={onDeleteItem} />}
           />
           <Route path="items/:id/edititem" element={<EditItem />} />
-          <Route path="styles" element={<StyleGallery />} />
+          {/* <Route path="styles" element={<StyleGallery />} /> */}
         </Routes>
         <Outlet />
       </main>

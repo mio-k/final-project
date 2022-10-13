@@ -8,6 +8,7 @@ function Dog(){
         breed: "",
         age: 0,
         about: "",
+        pic: "",
         user: {
             firstname: "",
             lastname: ""
@@ -25,8 +26,8 @@ function Dog(){
         <p>Name: {dog.name}</p>
         <p>Breed: {dog.breed}</p>
         <p>Age: {dog.age} years old</p>
-        <p>Color: {dog.color}</p>
         <p>Owner: {dog.user.firstname}</p>
+        <p>About: {dog.about}</p>
         </div>
     )
 }

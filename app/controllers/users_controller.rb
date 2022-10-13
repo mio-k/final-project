@@ -20,6 +20,10 @@ class UsersController < ApplicationController
         user.update(user_params)
         render json: user
     end
+    def authenticate
+        user = User.find_by(id: session[:user_id])
+        render json: user
+    end
 
     private
     def find_user

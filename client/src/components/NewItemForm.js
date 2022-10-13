@@ -7,6 +7,7 @@ function NewItemForm({ onAddItem, user, tags }) {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
+    pic: "",
     user_id: user.id,
     tags: [],
   });
@@ -55,6 +56,7 @@ function NewItemForm({ onAddItem, user, tags }) {
     setFormData({
       name: "",
       description: "",
+      pic: "",
       tags: [],
     });
     navigate("/itemlist");
@@ -81,6 +83,15 @@ function NewItemForm({ onAddItem, user, tags }) {
           type="text"
           name="description"
           value={formData.description}
+          onChange={handleChange}
+        />
+      </p>
+      <p>
+        Picture: {" "}
+        <input 
+          type="text"
+          name="pic"
+          value={formData.pic}
           onChange={handleChange}
         />
       </p>

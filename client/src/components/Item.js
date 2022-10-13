@@ -40,6 +40,7 @@ function Item({onDeleteItem}){
           <h3>Item: {item.name}</h3>
           <p>Description: {item.description}</p>
           <p>Offered by: {item.user.firstname}</p>
+          <p>Contact: {item.user.contact}</p>
           <ul>Category: {item.tags.map((tag) =>(
             <li>{tag.category}</li>))} </ul>
           {isEditing ? (

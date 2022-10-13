@@ -6,7 +6,7 @@ function NewDogForm({ member, onAddDog }) {
     name: "",
     breed: "",
     age: 0,
-    color: "",
+    about: "",
     user_id: member.id,
   });
 
@@ -32,7 +32,7 @@ function NewDogForm({ member, onAddDog }) {
       name: "",
       breed: "",
       age: 0,
-      color: "",
+      about: "",
     });
   }
 
@@ -63,11 +63,11 @@ function NewDogForm({ member, onAddDog }) {
         onChange={handleChange}
       />
       <br />
-      Color:{" "}
+      Introduction:{" "}
       <input
         type="text"
         name="color"
-        value={formData.color}
+        value={formData.about}
         onChange={handleChange}
       />
       <br />
