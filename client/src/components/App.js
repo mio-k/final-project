@@ -7,6 +7,8 @@ import ItemList from "./ItemList";
 import NewItemForm from "./NewItemForm";
 import NewDogForm from "./NewDogForm";
 import User from "./User";
+import YourProfile from "./YourProfile";
+import Playdates from "./Playdates";
 import Dog from "./Dog";
 import Item from "./Item";
 import EditItem from "./EditItem";
@@ -71,9 +73,11 @@ function App() {
               <NewItemForm onAddItem={onAddItem} user={user} tags={tags} />
             }
           />
+          <Route path="playdates" element={<Playdates />} />
           <Route path="newdogform" element={<NewDogForm />} />
           <Route path="users/:id" element={<User />} />
           <Route path="dogs/:id" element={<Dog />} />
+          <Route path="yourprofile" element={<YourProfile />} />
           <Route
             path="items/:id"
             element={<Item onDeleteItem={onDeleteItem} />}

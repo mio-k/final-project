@@ -45,23 +45,28 @@ function NavBar({ setUser }) {
           >
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a href="/userlist" className="nav-link">
+                <a href="/doglist" className="nav-link">
                   <i className="nc-icon nc-layout-11"></i> Members
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/doglist" className="nav-link">
-                  <i className="nc-icon nc-layout-11"></i> Our Dogs
-                </a>
-              </li>
-              <li className="nav-item">
                 <a href="/itemlist" className="nav-link">
-                  <i className="nc-icon nc-book-bookmark"></i> Free Items
+                  <i className="nc-icon nc-book-bookmark"></i> Free Stuff
                 </a>
               </li>
               <li className="nav-item">
                 <a href="/newitemform" className="nav-link">
                   <i className="nc-icon nc-book-bookmark"></i> Offer Free Item
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="/playdates" className="nav-link">
+                  <i className="nc-icon nc-layout-11"></i> Playdates
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="/yourprofile" className="nav-link">
+                  <i className="nc-icon nc-layout-11"></i> Your Profile
                 </a>
               </li>
               <button
