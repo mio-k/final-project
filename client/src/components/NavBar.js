@@ -54,11 +54,11 @@ function NavBar({ setUser }) {
                   <i className="nc-icon nc-book-bookmark"></i> Free Stuff
                 </a>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a href="/newitemform" className="nav-link">
                   <i className="nc-icon nc-book-bookmark"></i> Offer Free Item
                 </a>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <a href="/playdates" className="nav-link">
                   <i className="nc-icon nc-layout-11"></i> Playdates

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+// import { Link, Outlet } from "react-router-dom";
+import PlaydateForm from "./PlaydateForm";
 
 function Playdates() {
   const [playdates, setPlaydates] = useState([]);
@@ -11,6 +12,7 @@ function Playdates() {
 
   return (
     <>
+      <PlaydateForm />
       <ul>
         {playdates.map((playdate) => (
           <li>

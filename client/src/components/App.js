@@ -9,6 +9,7 @@ import NewDogForm from "./NewDogForm";
 import User from "./User";
 import YourProfile from "./YourProfile";
 import Playdates from "./Playdates";
+import PlaydateForm from "./PlaydateForm";
 import Dog from "./Dog";
 import Item from "./Item";
 import EditItem from "./EditItem";
@@ -74,6 +75,7 @@ function App() {
             }
           />
           <Route path="playdates" element={<Playdates />} />
+          <Route path="playdateform" element={<PlaydateForm />} />
           <Route path="newdogform" element={<NewDogForm />} />
           <Route path="users/:id" element={<User />} />
           <Route path="dogs/:id" element={<Dog />} />

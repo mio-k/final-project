@@ -37,7 +37,10 @@ function ItemList({ items }) {
         Did your dog grow out of a harness? Did the food you purchased recently
         didn't agree with your pup? Offer it to other members here!
       </p>
-      <p>Click on the item to learn more.</p>
+      <Link style={{ display: "block", margin: "1rem 0" }} to={`/newitemform`}>
+        <p>Offer free items from here</p>
+      </Link>
+      <p>Currently available free items.</p>
       <Search search={search} onHandleSearch={setSearch} />
       <Filter filterValue={filter} onChangeCategory={onChangeCategory} />
       <div class="row row-cols-1">
