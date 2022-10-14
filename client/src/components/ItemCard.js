@@ -1,20 +1,18 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Dog from "./Dog";
+import Item from "./Item";
 
-function DogCard({ dog }) {
+function ItemCard({ item }) {
   let navigate = useNavigate();
   function handleClick() {
-    console.log(dog);
-    navigate(`/dogs/${dog.id}`);
+    navigate(`/items/${item.id}`);
   }
-
   return (
     <div class="col mb-4">
       <div className="card h-100">
-        <img src={dog.pic} alt={dog.name} />
+        <img src={item.pic} alt={item.name} />
         <div class="card-body">
-          <h4 class="card-title">{dog.name}</h4>
+          <h4 class="card-title">{item.name}</h4>
           <button class="btn btn-outline-primary btn-sm" onClick={handleClick}>
             View
           </button>
@@ -23,4 +21,4 @@ function DogCard({ dog }) {
     </div>
   );
 }
-export default DogCard;
+export default ItemCard;

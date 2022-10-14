@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Search from "./Search";
 import Filter from "./Filter";
 import { Link, Outlet } from "react-router-dom";
+import ItemCard from "./ItemCard";
 
 function ItemList({ items }) {
   const [search, setSearch] = useState("");
@@ -39,7 +40,12 @@ function ItemList({ items }) {
       <p>Click on the item to learn more.</p>
       <Search search={search} onHandleSearch={setSearch} />
       <Filter filterValue={filter} onChangeCategory={onChangeCategory} />
-      <ul>
+      <div class="row row-cols-1">
+        {items.map((item) => {
+          return <ItemCard key={item.id} item={item} />;
+        })}
+      </div>
+      {/* <ul>
         {allItems.map((item) => (
           <Link
             style={{ display: "block", margin: "1rem 0" }}
@@ -51,7 +57,7 @@ function ItemList({ items }) {
           </Link>
         ))}
       </ul>
-      <Outlet />
+      <Outlet /> */}
     </div>
   );
 }
