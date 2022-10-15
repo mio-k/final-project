@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { Button, Error, input, FormField, Label } from "../styles";
 
 function SignUpForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -37,64 +36,76 @@ function SignUpForm({ onLogin }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <formfield>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          autoComplete="off"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </formfield>
-      <formfield>
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          autoComplete="current-password"
-        />
-      </formfield>
-      <formfield>
-        <label htmlFor="password">Password Confirmation</label>
-        <input
-          type="password"
-          id="password_confirmation"
-          value={passwordConfirmation}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-          autoComplete="current-password"
-        />
-      </formfield>
-      <formfield>
-        <label htmlFor="firstname">First Name</label>
-        <input
-          type="text"
-          id="firstname"
-          value={firstname}
-          onChange={(e) => setFirstname(e.target.value)}
-        />
-      </formfield>
-      <formfield>
-        <label htmlFor="lastname">Last Name</label>
-        <input
-          type="text"
-          id="lastname"
-          value={lastname}
-          onChange={(e) => setLastname(e.target.value)}
-        />
-      </formfield>
-      <formfield>
-        <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
-      </formfield>
-      <formfield>
-        {errors.map((err) => (
-          <error key={err}>{err}</error>
-        ))}
-      </formfield>
-    </form>
+    <div className="main">
+      <div className="container">
+        <div className="register-page sidebar-collapse">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-4 col-md-6 mx-auto">
+                <div className="card card-register">
+                  <h4 className="title mx-auto">Register to join</h4>
+                  <form className="register-form" onSubmit={handleSubmit}>
+                    <label htmlFor="username">Username</label>
+                    <input
+                      type="text"
+                      id="username"
+                      autoComplete="off"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <br></br>
+                    <label htmlFor="password">Password</label>
+                    <input
+                      type="password"
+                      id="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      autoComplete="current-password"
+                    />
+                    <br></br>
+                    <label htmlFor="password">Password Confirmation</label>
+                    <input
+                      type="password"
+                      id="password_confirmation"
+                      value={passwordConfirmation}
+                      onChange={(e) => setPasswordConfirmation(e.target.value)}
+                      autoComplete="current-password"
+                    />
+                    <br></br>
+                    <label htmlFor="firstname">First Name</label>
+                    <input
+                      type="text"
+                      id="firstname"
+                      value={firstname}
+                      onChange={(e) => setFirstname(e.target.value)}
+                    />
+                    <br></br>
+                    <label htmlFor="lastname">Last Name</label>
+                    <input
+                      type="text"
+                      id="lastname"
+                      value={lastname}
+                      onChange={(e) => setLastname(e.target.value)}
+                    />
+                    <br></br>
+                    <button
+                      className="btn btn-danger btn-block btn-round"
+                      type="submit"
+                    >
+                      {isLoading ? "Loading..." : "Sign Up"}
+                    </button>
+                    <br></br>
+                    {errors.map((err) => (
+                      <error key={err}>{err}</error>
+                    ))}
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

@@ -13,7 +13,7 @@ import PlaydateForm from "./PlaydateForm";
 import Dog from "./Dog";
 import Item from "./Item";
 import EditItem from "./EditItem";
-import StyleGallery from "./StyleGallery";
+// import StyleGallery from "./StyleGallery";
 import Home from "./Home";
 
 function App() {

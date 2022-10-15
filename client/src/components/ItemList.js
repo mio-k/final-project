@@ -3,6 +3,7 @@ import Search from "./Search";
 import Filter from "./Filter";
 import { Link, Outlet } from "react-router-dom";
 import ItemCard from "./ItemCard";
+import NewItemForm from "./NewItemForm";
 
 function ItemList({ items }) {
   const [search, setSearch] = useState("");
@@ -19,11 +20,9 @@ function ItemList({ items }) {
             return tag.category === filter;
           });
         });
-  console.log(filteredList);
   const allItems = filteredList.filter((item) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
   });
-  console.log(allItems);
   // setFilter(filteredList);
 
   return (

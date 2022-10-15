@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { Button, Error, input, FormField, label } from "../styles";
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -27,38 +26,47 @@ function LoginForm({ onLogin }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <formfield>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          autoComplete="off"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </formfield>
-      <formfield>
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          autoComplete="current-password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </formfield>
-      <formfield>
-        <button variant="fill" color="primary" type="submit">
-          {isLoading ? "Loading..." : "Login"}
-        </button>
-      </formfield>
-      <formfield>
-        {errors.map((err) => (
-          <error key={err}>{err}</error>
-        ))}
-      </formfield>
-    </form>
+    // <div className="register-page sidebar-collapse">
+    <div className="container">
+      <div className="row">
+        <div className="col-lg-4 col-md-6 mx-auto">
+          <div className="card card-register">
+            <h3 className="title mx-auto">DogPod Login</h3>
+            <form className="register-form" onSubmit={handleSubmit}>
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                autoComplete="off"
+                className="form-control"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <br></br>
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                className="form-control"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <button
+                className="btn btn-danger btn-block btn-round"
+                type="submit"
+              >
+                {isLoading ? "Loading..." : "Login"}
+              </button>
+              {errors.map((err) => (
+                <error key={err}>{err}</error>
+              ))}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    // </div>
   );
 }
 
