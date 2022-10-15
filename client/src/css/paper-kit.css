@@ -2189,6 +2189,7 @@ fieldset[disabled] .btn-neutral.active {
 .btn-sm {
   font-size: 12px;
   padding: 4px 10px;
+  margin: 10px;
 }
 
 .btn-sm.btn-simple {

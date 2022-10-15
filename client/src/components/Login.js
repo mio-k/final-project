@@ -18,7 +18,7 @@ function Login({ onLogin }) {
 
             <div className="forgot">
               <a
-                href="#"
+                href="/signup"
                 class="btn btn-link btn-danger"
                 onClick={() => setShowLogin(false)}
               >

@@ -21,14 +21,37 @@ function Dog() {
   }, []);
 
   return (
-    <div>
-      <h2>Dog {dog.id}</h2>
-      <img src={dog.pic} alt={dog.name} />
-      <p>Name: {dog.name}</p>
-      <p>Breed: {dog.breed}</p>
-      <p>Age: {dog.age} years old</p>
-      <p>Owner: {dog.user.firstname}</p>
-      <p>About: {dog.about}</p>
+    <div className="profile-page">
+      <div class="section profile-content">
+        <div class="container">
+          <div class="owner">
+            <div class="avatar">
+              <img
+                src={dog.pic}
+                alt={dog.name}
+                class="img-circle img-no-padding img-responsive"
+              />
+            </div>
+            <div className="name">
+              <h4 className="title">
+                {dog.name}
+                <br />
+              </h4>
+              <h6 className="description">Breed: {dog.breed}</h6>
+              <br />
+              <p>Age: {dog.age} years old</p>
+              <br />
+              <p>Owner: {dog.user.firstname}</p>
+              <br />
+            </div>
+            <div className="row">
+              <div className="col-md-6 ml-auto mr-auto text-center">
+                <p>{dog.about}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
