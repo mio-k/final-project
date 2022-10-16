@@ -15,11 +15,6 @@ class UsersController < ApplicationController
         user = User.create!(user_params)
         render user, status: :created
     end
-    def update
-        user = find_user
-        user.update(user_params)
-        render json: user
-    end
     def authenticate
         user = User.find_by(id: session[:user_id])
         render json: user

@@ -5,7 +5,6 @@ import Dog from "./Dog";
 function DogCard({ dog }) {
   let navigate = useNavigate();
   function handleClick() {
-    console.log(dog);
     navigate(`/dogs/${dog.id}`);
   }
 

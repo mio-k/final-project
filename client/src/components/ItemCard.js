@@ -4,6 +4,7 @@ import Item from "./Item";
 
 function ItemCard({ item }) {
   let navigate = useNavigate();
+
   function handleClick() {
     navigate(`/items/${item.id}`);
   }

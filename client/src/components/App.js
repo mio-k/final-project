@@ -13,6 +13,7 @@ import PlaydateForm from "./PlaydateForm";
 import Dog from "./Dog";
 import Item from "./Item";
 import EditItem from "./EditItem";
+import EditDog from "./EditDog";
 // import StyleGallery from "./StyleGallery";
 import Home from "./Home";
 
@@ -79,7 +80,8 @@ function App() {
           <Route path="newdogform" element={<NewDogForm />} />
           <Route path="users/:id" element={<User />} />
           <Route path="dogs/:id" element={<Dog />} />
-          <Route path="yourprofile" element={<YourProfile />} />
+          <Route path="yourprofile" element={<YourProfile user={user} />} />
+          <Route path="editdog" element={<EditDog />} />
           <Route
             path="items/:id"
             element={<Item onDeleteItem={onDeleteItem} />}

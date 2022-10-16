@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import EditItem from "./EditItem";
 import { useNavigate, useParams } from "react-router-dom";
 
 function Item({ onDeleteItem }) {
   const { id } = useParams();
+  let navigate = useNavigate();
   const [item, setItem] = useState({
     name: "",
     description: "",
@@ -16,9 +16,6 @@ function Item({ onDeleteItem }) {
       .then((individualItem) => setItem(individualItem));
   }, []);
 
-  let navigate = useNavigate();
-  const [isEditing, setIsEditing] = useState(false);
-
   function handleDeleteClick() {
     fetch(`/items/${id}`, {
       method: "DELETE",
@@ -29,6 +26,9 @@ function Item({ onDeleteItem }) {
   }
   function onUpdateItem(updatedItem) {
     setItem(updatedItem);
+  }
+  function handleEditItem() {
+    navigate(`items/${id}/edititem`);
   }
 
   return (
@@ -63,11 +63,6 @@ function Item({ onDeleteItem }) {
                     <li>{tag.category}</li>
                   ))}{" "}
                 </ul>
-                {isEditing ? (
-                  <EditItem item={item} onUpdateItem={onUpdateItem} />
-                ) : (
-                  ""
-                )}
                 <button
                   className="btn btn-outline-danger btn-sm"
                   onClick={handleDeleteClick}
@@ -76,42 +71,12 @@ function Item({ onDeleteItem }) {
                 </button>
                 <button
                   className="btn btn-outline-danger btn-sm"
-                  onClick={() => setIsEditing((isEditing) => !isEditing)}
+                  onClick={handleEditItem}
                 >
                   Edit Item
                 </button>{" "}
               </div>
             ) : (
-              // <div>
-              //   <h3>Item: {item.name}</h3>
-              //   <img src={item.pic} alt={item.name} />
-              //   <p>Description: {item.description}</p>
-              //   <p>Offered by: {item.user.firstname}</p>
-              //   <p>Contact: {item.user.contact}</p>
-              //   <ul>
-              //     Category:{" "}
-              //     {item.tags.map((tag) => (
-              //       <li>{tag.category}</li>
-              //     ))}{" "}
-              //   </ul>
-              //   {isEditing ? (
-              //     <EditItem item={item} onUpdateItem={onUpdateItem} />
-              //   ) : (
-              //     ""
-              //   )}
-              //   <button
-              //     class="btn btn-outline-danger btn-sm"
-              //     onClick={handleDeleteClick}
-              //   >
-              //     Delete Item
-              //   </button>
-              //   <button
-              //     class="btn btn-outline-danger btn-sm"
-              //     onClick={() => setIsEditing((isEditing) => !isEditing)}
-              //   >
-              //     Edit Item
-              //   </button>{" "}
-              // </div>
               <p>No item from this user</p>
             )}
           </div>

@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-function EditItem({ item, onUpdateItem }) {
+function EditDog({ dog, onUpdateDog }) {
   let navigate = useNavigate();
   const [revisedData, setRevisedData] = useState({
-    name: item.name,
-    description: item.description,
-    pic: item.pic,
-    category: [],
+    name: dog.name,
+    breed: dog.breed,
+    age: dog.age,
+    pic: dog.pic,
+    about: dog.about,
   });
   let { id } = useParams();
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    fetch(`/items/${id}`, {
+    fetch(`/dogs/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -24,16 +25,16 @@ function EditItem({ item, onUpdateItem }) {
       }),
     })
       .then((r) => r.json())
-      .then((updatedItem) => {
-        console.log(updatedItem);
-        onUpdateItem(updatedItem);
-        navigate(`/items/${id}`);
+      .then((updatedDog) => {
+        console.log(updatedDog);
+        onUpdateDog(updatedDog);
+        navigate(`/dogs/${id}`);
       });
   }
   return (
     <form className="edit-order" onSubmit={handleFormSubmit}>
       <p>
-        Item Name:{" "}
+        Dog Name:{" "}
         <input
           type="text"
           name="name"
@@ -47,15 +48,29 @@ function EditItem({ item, onUpdateItem }) {
         />
       </p>
       <p>
-        Description:{" "}
+        Breed:{" "}
         <input
           type="text"
-          name="description"
-          value={revisedData.description}
+          name="breed"
+          value={revisedData.breed}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
-              description: e.target.value,
+              name: e.target.value,
+            }))
+          }
+        />
+      </p>
+      <p>
+        Age:{" "}
+        <input
+          type="text"
+          name="age"
+          value={revisedData.age}
+          onChange={(e) =>
+            setRevisedData((previousRevisedData) => ({
+              ...previousRevisedData,
+              name: e.target.value,
             }))
           }
         />
@@ -64,8 +79,22 @@ function EditItem({ item, onUpdateItem }) {
         Photo:{" "}
         <input
           type="text"
-          name="description"
+          name="pic"
           value={revisedData.pic}
+          onChange={(e) =>
+            setRevisedData((previousRevisedData) => ({
+              ...previousRevisedData,
+              name: e.target.value,
+            }))
+          }
+        />
+      </p>
+      <p>
+        about:{" "}
+        <input
+          type="text"
+          name="about"
+          value={revisedData.about}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
@@ -80,4 +109,4 @@ function EditItem({ item, onUpdateItem }) {
     </form>
   );
 }
-export default EditItem;
+export default EditDog;

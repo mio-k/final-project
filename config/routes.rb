@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/authorized", to: "users#authenticate"
 
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show]
   resources :dogs, only: [:index, :show, :create, :update]
   resources :items 
   resources :playdates, only: [:index, :create, :update, :destroy]
