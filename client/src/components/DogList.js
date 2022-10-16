@@ -11,11 +11,16 @@ function DogList() {
   }, []);
 
   return (
-    <div class="row row-cols-1">
-      {dogs.map((dog) => {
-        console.log(dog);
-        return <DogCard key={dog.id} dog={dog} />;
-      })}
+    <div class="section profile-content">
+      <div className="container">
+        <h3>Our Member Dogs</h3>
+        <br />
+        <div className="row row-cols-1">
+          {dogs.map((dog) => {
+            return <DogCard key={dog.id} dog={dog} />;
+          })}
+        </div>
+      </div>
     </div>
   );
 }
