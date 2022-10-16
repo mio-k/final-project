@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :dogs, only: [:index, :show, :create, :update]
   resources :items 
+  resources :tags, only: [:index]
   resources :playdates, only: [:index, :create, :update, :destroy]
 end

@@ -22,6 +22,7 @@ function DogCard({ dog }) {
         </div>
         <button
           className="btn btn-outline-primary btn-sm"
+          style={{ width: 100, alignSelf: "center" }}
           onClick={handleClick}
         >
           View

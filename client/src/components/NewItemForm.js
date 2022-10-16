@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import { Input } from "../styles";
 import { useNavigate } from "react-router-dom";
 // import { MultiSelect } from "react-multi-select-component";
+import topbanner from "./img/topbanner.jpeg";
 
 function NewItemForm({ onAddItem, user, tags }) {
   const [formData, setFormData] = useState({
@@ -63,59 +64,84 @@ function NewItemForm({ onAddItem, user, tags }) {
   }
 
   return (
-    <form className="order-form" onSubmit={handleSubmit}>
-      <h3>Add New Free Item to Share</h3>
-      <p>
-        Got a dog care item you don't need anymore? Offer it to your friends.
-      </p>
-      <p>
-        Item:{" "}
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-      </p>
-      <p>
-        Description:{" "}
-        <input
-          type="text"
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-        />
-      </p>
-      <p>
-        Picture: {" "}
-        <input 
-          type="text"
-          name="pic"
-          value={formData.pic}
-          onChange={handleChange}
-        />
-      </p>
-      <p>
-        Category (Hold Ctrl to multi-select):
-        <select
-          multiple={true}
-          name="tags"
-          value={formData.tags}
-          onChange={handleChange}
-        >
-          <option value="walking">Walking</option>
-          <option value="grooming">Grooming</option>
-          <option value="food">Food</option>
-          <option value="puppy_care">Puppy Care</option>
-          <option value="play">Play</option>
-        </select>
-      </p>
-      {/* <pre>{JSON.stringify(selected)}</pre> */}
-
-      <button class="btn btn-outline-danger btn-sm" type="submit">
-        Add Free Item
-      </button>
-    </form>
+    <>
+      <div
+        className="page-header page-header-xs"
+        data-parallax="true"
+        style={{
+          backgroundImage: `url(${topbanner})`,
+        }}
+      >
+        <div className="filter"></div>
+      </div>
+      <div className="section profile-content">
+        <div className="container">
+          <div className="owner">
+            <h3>Post a Free Item to Share</h3>
+            <p>
+              Got a dog care item you don't need anymore? Offer it to your
+              friends.
+            </p>
+          </div>
+          <form className="order-form" onSubmit={handleSubmit}>
+            <p>
+              Item:{" "}
+              <input
+                className="form-control"
+                style={{ width: 300 }}
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+              />
+            </p>
+            <p>
+              Description:{" "}
+              <input
+                className="form-control"
+                style={{ width: 800, height: 80 }}
+                type="text"
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+              />
+            </p>
+            <p>
+              Picture:{" "}
+              <input
+                className="form-control"
+                style={{ width: 300 }}
+                type="text"
+                name="pic"
+                value={formData.pic}
+                onChange={handleChange}
+              />
+            </p>
+            <p>
+              Category (Hold Ctrl to multi-select):
+              <select
+                className="form-control"
+                style={{ width: 200 }}
+                multiple={true}
+                name="tags"
+                value={formData.tags}
+                onChange={handleChange}
+              >
+                <option value="walking">Walking</option>
+                <option value="grooming">Grooming</option>
+                <option value="food">Food</option>
+                <option value="puppy_care">Puppy Care</option>
+                <option value="play">Play</option>
+              </select>
+            </p>
+            <br />
+            <button class="btn btn-outline-danger btn-sm" type="submit">
+              Add Free Item
+            </button>
+          </form>
+        </div>
+      </div>
+    </>
   );
 }
 

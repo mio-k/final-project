@@ -12,27 +12,23 @@ function Playdates() {
 
   return (
     <>
-      <PlaydateForm />
-      <ul>
-        {playdates.map((playdate) => (
-          <li>
-            {playdate.when} {playdate.howlong}
-          </li>
-        ))}
-        {/* {playdates.map((playdate) => (
-          <Link
-            style={{ display: "block", margin: "1rem 0" }}
-            to={`/playdates/${playdate.id}`}
-            key={playdate.id}
-            item={playdate}
-          >
-            <li>
-              {playdate.when} {playdate.howlong}
-            </li>
-          </Link>
-        ))} */}
-      </ul>
-      {/* <Outlet /> */}
+      <div className="page-header page-header-xs" data-parallax="true">
+        <div className="filter"></div>
+      </div>
+      <div className="section profile-content">
+        <div className="container">
+          <PlaydateForm />
+          <h3>Current Playdate Requests</h3>
+          <p>Following requests are currently made by the members. </p>
+          <ul>
+            {playdates.map((playdate) => (
+              <li>
+                {playdate.when} {playdate.howlong}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </>
   );
 }

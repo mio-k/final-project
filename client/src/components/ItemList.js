@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Search from "./Search";
 import Filter from "./Filter";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ItemCard from "./ItemCard";
-import NewItemForm from "./NewItemForm";
 
 function ItemList({ items }) {
   const [search, setSearch] = useState("");
@@ -23,7 +22,6 @@ function ItemList({ items }) {
   const allItems = filteredList.filter((item) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
   });
-  // setFilter(filteredList);
 
   return (
     <div className="list">
@@ -39,27 +37,16 @@ function ItemList({ items }) {
       <Link style={{ display: "block", margin: "1rem 0" }} to={`/newitemform`}>
         <p>Offer free items from here</p>
       </Link>
-      <p>Currently available free items.</p>
+      <h3>Currently available free items</h3>
+      <br />
       <Search search={search} onHandleSearch={setSearch} />
       <Filter filterValue={filter} onChangeCategory={onChangeCategory} />
+      <br />
       <div class="row row-cols-1">
         {items.map((item) => {
           return <ItemCard key={item.id} item={item} />;
         })}
       </div>
-      {/* <ul>
-        {allItems.map((item) => (
-          <Link
-            style={{ display: "block", margin: "1rem 0" }}
-            to={`/items/${item.id}`}
-            key={item.id}
-            item={item}
-          >
-            <li>{item.name}</li>
-          </Link>
-        ))}
-      </ul>
-      <Outlet /> */}
     </div>
   );
 }

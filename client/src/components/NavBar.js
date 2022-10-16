@@ -46,12 +46,12 @@ function NavBar({ setUser }) {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <a href="/doglist" className="nav-link">
-                  <i className="nc-icon nc-layout-11"></i> Members
+                  <i className="nc-icon nc-alert-circle-i"></i> Members
                 </a>
               </li>
               <li className="nav-item">
                 <a href="/itemlist" className="nav-link">
-                  <i className="nc-icon nc-book-bookmark"></i> Free Stuff
+                  <i className="nc-icon nc-diamond"></i> Free Stuff
                 </a>
               </li>
               {/* <li className="nav-item">
@@ -61,12 +61,12 @@ function NavBar({ setUser }) {
               </li> */}
               <li className="nav-item">
                 <a href="/playdates" className="nav-link">
-                  <i className="nc-icon nc-layout-11"></i> Playdates
+                  <i className="nc-icon nc-favourite-28"></i> Playdates
                 </a>
               </li>
               <li className="nav-item">
                 <a href="/yourprofile" className="nav-link">
-                  <i className="nc-icon nc-layout-11"></i> Your Profile
+                  <i className="nc-icon nc-circle-10"></i> Your Profile
                 </a>
               </li>
               <button

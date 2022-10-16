@@ -7,15 +7,17 @@ function Search({ search, onHandleSearch }) {
 
   return (
     <div className="search">
-      <strong>Search free items</strong>
-      <input
-        className="input"
-        type="text"
-        placeholder="Search free items"
-        name="name"
-        value={search}
-        onChange={handleSearch}
-      />
+      <label>
+        <input
+          className="form-control"
+          style={{ width: 300 }}
+          type="text"
+          placeholder="Search free items"
+          name="name"
+          value={search}
+          onChange={handleSearch}
+        />
+      </label>
     </div>
   );
 }

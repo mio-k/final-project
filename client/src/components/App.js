@@ -14,7 +14,6 @@ import Dog from "./Dog";
 import Item from "./Item";
 import EditItem from "./EditItem";
 import EditDog from "./EditDog";
-// import StyleGallery from "./StyleGallery";
 import Home from "./Home";
 
 function App() {
@@ -87,7 +86,6 @@ function App() {
             element={<Item onDeleteItem={onDeleteItem} />}
           />
           <Route path="items/:id/edititem" element={<EditItem />} />
-          {/* <Route path="styles" element={<StyleGallery />} /> */}
         </Routes>
         <Outlet />
       </main>

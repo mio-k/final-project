@@ -50,6 +50,8 @@ function PlaydateForm({ onAddItem }) {
         When:{" "}
         <input
           type="text"
+          className="form-control"
+          style={{ width: 300 }}
           name="when"
           value={formData.when}
           onChange={handleChange}
@@ -59,6 +61,8 @@ function PlaydateForm({ onAddItem }) {
         How long:{" "}
         <input
           type="text"
+          className="form-control"
+          style={{ width: 300 }}
           name="howlong"
           value={formData.howlong}
           onChange={handleChange}
@@ -68,28 +72,14 @@ function PlaydateForm({ onAddItem }) {
         Who is this for?:{" "}
         <input
           type="text"
+          className="form-control"
+          style={{ width: 300 }}
           name="who"
           value={formData.who}
           onChange={handleChange}
         />
       </p>
-      {/* <p>
-        Category (Hold Ctrl to multi-select):
-        <select
-          multiple={true}
-          name="tags"
-          value={formData.tags}
-          onChange={handleChange}
-        >
-          <option value="walking">Walking</option>
-          <option value="grooming">Grooming</option>
-          <option value="food">Food</option>
-          <option value="puppy_care">Puppy Care</option>
-          <option value="play">Play</option>
-        </select>
-      </p> */}
-      {/* <pre>{JSON.stringify(selected)}</pre> */}
-
+      <br />
       <button class="btn btn-outline-danger btn-sm" type="submit">
         Add request
       </button>
