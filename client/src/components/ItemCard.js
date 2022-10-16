@@ -10,7 +10,7 @@ function ItemCard({ item }) {
   }
   return (
     <div class="col mb-4">
-      <div className="card h-100">
+      <div className="card h-100" style={{ width: 250 }}>
         <img src={item.pic} alt={item.name} />
         <div class="card-body">
           <h4 class="card-title">{item.name}</h4>

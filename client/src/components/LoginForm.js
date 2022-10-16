@@ -26,12 +26,13 @@ function LoginForm({ onLogin }) {
   }
 
   return (
-    // <div className="register-page sidebar-collapse">
     <div className="container">
       <div className="row">
         <div className="col-lg-4 col-md-6 mx-auto">
           <div className="card card-register">
-            <h3 className="title mx-auto">DogPod Login</h3>
+            <h3 className="title mx-auto" style={{ color: "white" }}>
+              Login
+            </h3>
             <form className="register-form" onSubmit={handleSubmit}>
               <label htmlFor="username">Username</label>
               <input
@@ -40,9 +41,9 @@ function LoginForm({ onLogin }) {
                 autoComplete="off"
                 className="form-control"
                 value={username}
+                placeholder="enter username"
                 onChange={(e) => setUsername(e.target.value)}
               />
-              <br></br>
               <label htmlFor="password">Password</label>
               <input
                 type="password"
@@ -50,6 +51,7 @@ function LoginForm({ onLogin }) {
                 autoComplete="current-password"
                 className="form-control"
                 value={password}
+                placeholder="enter password"
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button
@@ -66,7 +68,6 @@ function LoginForm({ onLogin }) {
         </div>
       </div>
     </div>
-    // </div>
   );
 }
 

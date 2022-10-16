@@ -15,7 +15,6 @@ function Login({ onLogin }) {
         {showLogin ? (
           <>
             <LoginForm onLogin={onLogin} />
-
             <div className="forgot">
               <a
                 href="/signup"
@@ -25,11 +24,6 @@ function Login({ onLogin }) {
                 Want to create an account?
               </a>
             </div>
-            {/* <p>
-            <button color="secondary" onClick={() => setShowLogin(false)}>
-              Create Account
-            </button>
-          </p> */}
           </>
         ) : (
           <>
@@ -41,9 +35,6 @@ function Login({ onLogin }) {
                 onClick={() => setShowLogin(true)}
               >
                 Already have an account?
-                {/* <button color="secondary" onClick={() => setShowLogin(true)}>
-                  Log In
-                </button> */}
               </a>
             </div>
           </>
@@ -52,17 +43,5 @@ function Login({ onLogin }) {
     </div>
   );
 }
-
-// const Wrapper = styled.section`
-//   max-width: 500px;
-//   margin: 40px auto;
-//   padding: 16px;
-// `;
-
-// const Divider = styled.hr`
-//   border: none;
-//   border-bottom: 1px solid #ccc;
-//   margin: 16px 0;
-// `;
 
 export default Login;
