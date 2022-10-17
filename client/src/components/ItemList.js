@@ -42,7 +42,7 @@ function ItemList({ items }) {
       <Search search={search} onHandleSearch={setSearch} />
       <Filter filterValue={filter} onChangeCategory={onChangeCategory} />
       <br />
-      <div class="row row-cols-1">
+      <div className="row row-cols-1">
         {items.map((item) => {
           return <ItemCard key={item.id} item={item} />;
         })}

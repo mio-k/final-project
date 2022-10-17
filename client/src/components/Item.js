@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import EditItem from "./EditItem";
 
 function Item({ onDeleteItem }) {
   const { id } = useParams();
+  const [isEditing, setIsEditing] = useState(false);
   let navigate = useNavigate();
   const [item, setItem] = useState({
     name: "",
@@ -55,14 +57,22 @@ function Item({ onDeleteItem }) {
                 <br />
                 <p>Offered by: {item.user.firstname}</p>
                 <br />
-                <p>Contact: {item.user.contact}</p>
+                <p>
+                  Want this item? Contact {item.user.firstname}:{" "}
+                  {item.user.contact}
+                </p>
                 <br />
                 <ul>
                   Category:{" "}
                   {item.tags.map((tag) => (
-                    <li>{tag.category}</li>
-                  ))}{" "}
+                    <li className="list-unstyled">{tag.category}</li>
+                  ))}
                 </ul>
+                {isEditing ? (
+                  <EditItem item={item} onUpdateItem={onUpdateItem} />
+                ) : (
+                  ""
+                )}
                 <button
                   className="btn btn-outline-danger btn-sm"
                   onClick={handleDeleteClick}
@@ -71,10 +81,10 @@ function Item({ onDeleteItem }) {
                 </button>
                 <button
                   className="btn btn-outline-danger btn-sm"
-                  onClick={handleEditItem}
+                  onClick={() => setIsEditing((isEditing) => !isEditing)}
                 >
                   Edit Item
-                </button>{" "}
+                </button>
               </div>
             ) : (
               <p>No item from this user</p>

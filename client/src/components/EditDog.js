@@ -103,7 +103,11 @@ function EditDog({ dog, onUpdateDog }) {
           }
         />
       </p>
-      <button class="btn btn-outline-danger btn-sm" type="submit" value="Save">
+      <button
+        className="btn btn-outline-danger btn-sm"
+        type="submit"
+        value="Save"
+      >
         Save
       </button>
     </form>

@@ -80,7 +80,7 @@ function PlaydateForm({ onAddItem }) {
         />
       </p>
       <br />
-      <button class="btn btn-outline-danger btn-sm" type="submit">
+      <button className="btn btn-outline-danger btn-sm" type="submit">
         Add request
       </button>
     </form>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import EditDog from "./EditDog";
 import topbanner from "./img/topbanner.jpeg";
 
@@ -16,14 +16,12 @@ function Dog() {
       lastname: "",
     },
   });
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(`/dogs/${id}`)
       .then((r) => r.json())
       .then((individualDog) => setDog(individualDog));
   }, []);
-  function editDogInfo() {
-    // <EditDog dog={individualDog} onUpdateDog={onUpdateDog} />;
-  }
 
   return (
     <>
@@ -62,12 +60,10 @@ function Dog() {
             <div className="col-md-6 ml-auto mr-auto text-center">
               <p>{dog.about}</p>
               <br />
-              <btn
-                className="btn btn-outline-default btn-round"
-                onClick={editDogInfo}
-              >
-                <i className="fa fa-cog"></i> Update
-              </btn>
+
+              <button className="btn btn-outline-default btn-round">
+                <i className="fa fa-cog"></i> Update {dog.name}'s info
+              </button>
             </div>
           </div>
         </div>

@@ -29,9 +29,9 @@ function YourProfile({ user }) {
             <div className="col-md-6 ml-auto mr-auto text-center">
               <p>description here</p>
               <br />
-              <btn className="btn btn-outline-default btn-round">
+              <button className="btn btn-outline-default btn-round">
                 <i className="fa fa-cog"></i> Settings
-              </btn>
+              </button>
             </div>
           </div>
         </div>

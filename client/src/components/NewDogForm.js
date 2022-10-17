@@ -43,6 +43,7 @@ function NewDogForm({ member, onAddDog }) {
       <input
         type="text"
         name="name"
+        className="form-control"
         value={formData.name}
         onChange={handleChange}
       />
@@ -51,6 +52,7 @@ function NewDogForm({ member, onAddDog }) {
       <input
         type="text"
         name="breed"
+        className="form-control"
         value={formData.breed}
         onChange={handleChange}
       />
@@ -59,6 +61,7 @@ function NewDogForm({ member, onAddDog }) {
       <input
         type="number"
         name="age"
+        className="form-control"
         value={formData.age}
         onChange={handleChange}
       />
@@ -67,11 +70,12 @@ function NewDogForm({ member, onAddDog }) {
       <input
         type="text"
         name="color"
+        className="form-control"
         value={formData.about}
         onChange={handleChange}
       />
       <br />
-      <button class="btn btn-outline-danger btn-sm" type="submit">
+      <button className="btn btn-outline-danger btn-sm" type="submit">
         Add Your Dog
       </button>
     </form>

@@ -135,7 +135,7 @@ function NewItemForm({ onAddItem, user, tags }) {
               </select>
             </p>
             <br />
-            <button class="btn btn-outline-danger btn-sm" type="submit">
+            <button className="btn btn-outline-danger btn-sm" type="submit">
               Add Free Item
             </button>
           </form>

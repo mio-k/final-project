@@ -59,11 +59,11 @@ function Home() {
           </p>
         </div>
       </div>
-      <div class="section">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="title">
+      <div className="section">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <div className="title">
                 <h3>Walk Planner</h3>
 
                 <br />

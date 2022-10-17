@@ -1,6 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-// import styled from "styled-components";
 
 function NavBar({ setUser }) {
   function handleLogoutClick() {
@@ -25,7 +23,7 @@ function NavBar({ setUser }) {
             >
               Home
             </a>
-            <button
+            {/* <button
               className="navbar-toggler navbar-toggler"
               type="button"
               data-toggle="collapse"
@@ -37,7 +35,7 @@ function NavBar({ setUser }) {
               <span className="navbar-toggler-bar bar1"></span>
               <span className="navbar-toggler-bar bar2"></span>
               <span className="navbar-toggler-bar bar3"></span>
-            </button>
+            </button> */}
           </div>
           <div
             className="collapse navbar-collapse justify-content-end"
@@ -54,11 +52,6 @@ function NavBar({ setUser }) {
                   <i className="nc-icon nc-diamond"></i> Free Stuff
                 </a>
               </li>
-              {/* <li className="nav-item">
-                <a href="/newitemform" className="nav-link">
-                  <i className="nc-icon nc-book-bookmark"></i> Offer Free Item
-                </a>
-              </li> */}
               <li className="nav-item">
                 <a href="/playdates" className="nav-link">
                   <i className="nc-icon nc-favourite-28"></i> Playdates

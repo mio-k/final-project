@@ -80,7 +80,7 @@ function App() {
           <Route path="users/:id" element={<User />} />
           <Route path="dogs/:id" element={<Dog />} />
           <Route path="yourprofile" element={<YourProfile user={user} />} />
-          <Route path="editdog" element={<EditDog />} />
+          <Route path="dogs/:id/editdog" element={<EditDog />} />
           <Route
             path="items/:id"
             element={<Item onDeleteItem={onDeleteItem} />}

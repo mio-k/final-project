@@ -18,7 +18,7 @@ function Login({ onLogin }) {
             <div className="forgot">
               <a
                 href="/signup"
-                class="btn btn-link btn-danger"
+                className="btn btn-link btn-danger"
                 onClick={() => setShowLogin(false)}
               >
                 Want to create an account?
@@ -31,7 +31,7 @@ function Login({ onLogin }) {
             <div className="forgot">
               <a
                 href="#"
-                class="btn btn-link btn-danger"
+                className="btn btn-link btn-danger"
                 onClick={() => setShowLogin(true)}
               >
                 Already have an account?

@@ -11,7 +11,7 @@ function DogList() {
   }, []);
 
   return (
-    <div class="section profile-content">
+    <div className="section profile-content">
       <div className="container">
         <h3>Our Member Dogs</h3>
         <br />
