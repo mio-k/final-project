@@ -290,6 +290,11 @@
   background-color: #cfcfca;
 }
 
+.tableul { width: 100%;clear:both;height:70px;list-style-type:none;margin:0;padding:0; }
+.tableli-when { width: 25%;height:32px;float: left;list-style-type:none;margin:0;padding:0; }
+.tableli-howlong { width: 20%;height:32px;float: left;list-style-type:none;margin:0;padding:0; }
+.tableli-who { width: 15%;height:32px;float: left;list-style-type:none;margin:0;padding:0; }
+
 /* Functional styling;
  * These styles are required for noUiSlider to function.
  * You don't need to change these rules to apply your design.

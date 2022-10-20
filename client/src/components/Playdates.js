@@ -10,6 +10,8 @@ function Playdates() {
       .then((playdates) => setPlaydates(playdates));
   }, []);
 
+  function handleVolunteerClick() {}
+
   return (
     <>
       <div className="page-header page-header-xs" data-parallax="true">
@@ -20,13 +22,29 @@ function Playdates() {
           <PlaydateForm />
           <h3>Current Playdate Requests</h3>
           <p>Following requests are currently made by the members. </p>
-          <ul>
+          <br />
+          <div>
             {playdates.map((playdate) => (
-              <li>
-                {playdate.when} {playdate.howlong}
-              </li>
+              <ul className="tableul">
+                <li className="tableli-when">{playdate.when}</li>
+                <li className="tableli-howlong">{playdate.howlong}</li>
+                <li className="tableli-who">For: {playdate.user.firstname}</li>
+                <li className="tableli-who">
+                  {playdate.sitter_id ? (
+                    "care arranged"
+                  ) : (
+                    <button
+                      className="btn btn-outline-danger btn-sm"
+                      type="submit"
+                      onClick="handleVolunteerClick"
+                    >
+                      Volunteer
+                    </button>
+                  )}
+                </li>
+              </ul>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </>
