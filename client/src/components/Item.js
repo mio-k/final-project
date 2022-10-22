@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Dog from "./Dog";
 import EditItem from "./EditItem";
 
-function Item({ onDeleteItem }) {
+function Item({ onDeleteItem, user }) {
   const { id } = useParams();
   const [isEditing, setIsEditing] = useState(false);
   let navigate = useNavigate();
@@ -73,18 +74,22 @@ function Item({ onDeleteItem }) {
                 ) : (
                   ""
                 )}
-                <button
-                  className="btn btn-outline-danger btn-sm"
-                  onClick={handleDeleteClick}
-                >
-                  Delete Item
-                </button>
-                <button
-                  className="btn btn-outline-danger btn-sm"
-                  onClick={() => setIsEditing((isEditing) => !isEditing)}
-                >
-                  Edit Item
-                </button>
+                {item.user.id === user.id && (
+                  <>
+                    <button
+                      className="btn btn-outline-danger btn-sm"
+                      onClick={handleDeleteClick}
+                    >
+                      Delete Item
+                    </button>
+                    <button
+                      className="btn btn-outline-danger btn-sm"
+                      onClick={() => setIsEditing((isEditing) => !isEditing)}
+                    >
+                      Edit Item
+                    </button>
+                  </>
+                )}
               </div>
             ) : (
               <p>No item from this user</p>

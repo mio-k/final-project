@@ -19,7 +19,7 @@ function ItemList({ items }) {
             return tag.category === filter;
           });
         });
-  const allItems = filteredList.filter((item) => {
+  const filteredItems = filteredList.filter((item) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
   });
 
@@ -43,7 +43,7 @@ function ItemList({ items }) {
       <Filter filterValue={filter} onChangeCategory={onChangeCategory} />
       <br />
       <div className="row row-cols-1">
-        {items.map((item) => {
+        {filteredItems.map((item) => {
           return <ItemCard key={item.id} item={item} />;
         })}
       </div>

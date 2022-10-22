@@ -14,6 +14,7 @@ function EditItem({ item, onUpdateItem }) {
 
   function handleFormSubmit(e) {
     e.preventDefault();
+    setIsEditing(false);
     fetch(`/items/${id}`, {
       method: "PATCH",
       headers: {
@@ -28,14 +29,20 @@ function EditItem({ item, onUpdateItem }) {
       .then((updatedItem) => {
         console.log(updatedItem);
         onUpdateItem(updatedItem);
+        setIsEditing(true);
         navigate(`/items/${id}`);
       });
   }
+
   return (
     <form className="edit-order" onSubmit={handleFormSubmit}>
       <div style={{ textAlign: "left" }}>
         <h3>Edit Item</h3>
-        <p>Make edits to your post below.</p>
+        {isEditing === true ? (
+          <p>Your item is updated successfully.</p>
+        ) : (
+          <p>Make edits to your post below.</p>
+        )}
         <p>
           Item Name:{" "}
           <input
@@ -54,10 +61,11 @@ function EditItem({ item, onUpdateItem }) {
         </p>
         <p>
           Description:{" "}
-          <input
+          <textarea
             type="text"
             name="description"
             className="form-control"
+            rows="8"
             style={{ width: 600 }}
             value={revisedData.description}
             onChange={(e) =>

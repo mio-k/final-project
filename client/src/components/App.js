@@ -74,7 +74,7 @@ function App() {
               <NewItemForm onAddItem={onAddItem} user={user} tags={tags} />
             }
           />
-          <Route path="playdates" element={<Playdates />} />
+          <Route path="playdates" element={<Playdates user={user} />} />
           <Route path="playdateform" element={<PlaydateForm />} />
           <Route path="newdogform" element={<NewDogForm />} />
           <Route path="users/:id" element={<User />} />
@@ -83,7 +83,7 @@ function App() {
           <Route path="dogs/:id/editdog" element={<EditDog />} />
           <Route
             path="items/:id"
-            element={<Item onDeleteItem={onDeleteItem} />}
+            element={<Item onDeleteItem={onDeleteItem} user={user} />}
           />
           <Route path="items/:id/edititem" element={<EditItem />} />
         </Routes>
