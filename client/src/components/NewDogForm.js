@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 // import { Button, input } from "../styles";
 
-function NewDogForm({ member, onAddDog }) {
+function NewDogForm({ user, onAddDog }) {
   const [formData, setFormData] = useState({
     name: "",
     breed: "",
     age: 0,
     about: "",
-    user_id: member.id,
+    user_id: user.id,
   });
 
   function handleChange(e) {
@@ -37,48 +37,58 @@ function NewDogForm({ member, onAddDog }) {
   }
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <h3>Add Your Dog</h3>
-      Dog's name:{" "}
-      <input
-        type="text"
-        name="name"
-        className="form-control"
-        value={formData.name}
-        onChange={handleChange}
-      />
-      <br />
-      Breed:{" "}
-      <input
-        type="text"
-        name="breed"
-        className="form-control"
-        value={formData.breed}
-        onChange={handleChange}
-      />
-      <br />
-      Age:{" "}
-      <input
-        type="number"
-        name="age"
-        className="form-control"
-        value={formData.age}
-        onChange={handleChange}
-      />
-      <br />
-      Introduction:{" "}
-      <input
-        type="text"
-        name="color"
-        className="form-control"
-        value={formData.about}
-        onChange={handleChange}
-      />
-      <br />
-      <button className="btn btn-outline-danger btn-sm" type="submit">
-        Add Your Dog
-      </button>
-    </form>
+    <div className="section profile-content">
+      <div className="container">
+        <div className="owner">
+          <form className="form" onSubmit={handleSubmit}>
+            <h3>Add Your Dog</h3>
+            <p>Dog's name: </p>
+            <input
+              type="text"
+              name="name"
+              className="form-control"
+              style={{ width: 300 }}
+              value={formData.name}
+              onChange={handleChange}
+            />
+            <br />
+            <p>Breed: </p>
+            <input
+              type="text"
+              name="breed"
+              className="form-control"
+              style={{ width: 300 }}
+              value={formData.breed}
+              onChange={handleChange}
+            />
+            <br />
+            <p>Age: </p>
+            <input
+              type="number"
+              name="age"
+              className="form-control"
+              style={{ width: 300 }}
+              value={formData.age}
+              onChange={handleChange}
+            />
+            <br />
+            <p>Introduction: </p>
+            <textarea
+              type="text"
+              name="color"
+              className="form-control"
+              style={{ width: 600 }}
+              value={formData.about}
+              onChange={handleChange}
+            />
+            <br />
+            <button className="btn btn-outline-danger btn-sm" type="submit">
+              Add Your Dog
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 }
 

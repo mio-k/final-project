@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-// import { Input } from "../styles";
 import { useNavigate } from "react-router-dom";
-// import { MultiSelect } from "react-multi-select-component";
 
-function PlaydateForm({ onAddItem }) {
+function PlaydateForm({ onAddItem, user }) {
   const [formData, setFormData] = useState({
     when: "",
     howlong: "",
-    user_id: "",
-    who: "",
+    user_id: user.id,
     sitter_id: 0,
   });
   let navigate = useNavigate();
@@ -22,7 +19,6 @@ function PlaydateForm({ onAddItem }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData);
     fetch("/playdates", {
       method: "POST",
       headers: {
@@ -35,8 +31,7 @@ function PlaydateForm({ onAddItem }) {
     setFormData({
       when: "",
       howlong: "",
-      user_id: "",
-      who: "",
+      user_id: user.id,
       sitter_id: 0,
     });
     navigate("/playdates");
@@ -45,7 +40,7 @@ function PlaydateForm({ onAddItem }) {
   return (
     <form className="order-form" onSubmit={handleSubmit}>
       <h3>Add a playdate request</h3>
-      <p>Need someone to watch your dog? Arrange a playdate here.</p>
+      <p>Need someone to watch {user.dog.name}? Arrange a playdate here.</p>
       <p>
         When:{" "}
         <input
@@ -65,17 +60,6 @@ function PlaydateForm({ onAddItem }) {
           style={{ width: 300 }}
           name="howlong"
           value={formData.howlong}
-          onChange={handleChange}
-        />
-      </p>
-      <p>
-        Who is this for?:{" "}
-        <input
-          type="text"
-          className="form-control"
-          style={{ width: 300 }}
-          name="who"
-          value={formData.who}
           onChange={handleChange}
         />
       </p>

@@ -97,9 +97,10 @@ function NewItemForm({ onAddItem, user, tags }) {
             </p>
             <p>
               Description:{" "}
-              <input
+              <textarea
                 className="form-control"
-                style={{ width: 800, height: 80 }}
+                style={{ width: 600 }}
+                rows="4"
                 type="text"
                 name="description"
                 value={formData.description}
