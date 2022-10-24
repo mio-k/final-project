@@ -26,6 +26,7 @@ function ItemList({ items }) {
   return (
     <div className="list">
       <h2>Free Dog Care Items</h2>
+      <br />
       <p>
         Welcome to Dog Pod free item exchange! This is where you can post the
         dog care goods you no longer needs so others can use them.
@@ -34,9 +35,13 @@ function ItemList({ items }) {
         Did your dog grow out of a harness? Did the food you purchased recently
         didn't agree with your pup? Offer it to other members here!
       </p>
-      <Link style={{ display: "block", margin: "1rem 0" }} to={`/newitemform`}>
-        <p>Offer free items from here</p>
+      <br />
+      <Link to={`/newitemform`} className="btn btn-outline-default btn-round">
+        <i className="fa fa-cog"></i> Offer free item
       </Link>
+      {/* <Link style={{ display: "block", margin: "1rem 0" }} to={`/newitemform`}>
+        <p>Offer free items from here</p>
+      </Link> */}
       <h3>Currently available free items</h3>
       <br />
       <Search search={search} onHandleSearch={setSearch} />

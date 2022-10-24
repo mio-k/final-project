@@ -36,19 +36,24 @@ function EditDog({ onUpdateDog }) {
     })
       .then((r) => r.json())
       .then((updatedDog) => {
-        console.log(updatedDog);
         onUpdateDog(updatedDog);
-        navigate(`/dogs/${id}`);
       });
+  }
+  function onUpdateDog(updatedDog) {
+    navigate(`/dogs/${id}`);
   }
 
   return (
     <form className="edit-order" onSubmit={handleFormSubmit}>
+      <h3>Edit your dog's information</h3>
+      <br />
       <p>
         Dog Name:{" "}
         <input
           type="text"
           name="name"
+          className="form-control"
+          style={{ width: 400 }}
           value={revisedData?.name}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
@@ -58,11 +63,14 @@ function EditDog({ onUpdateDog }) {
           }
         />
       </p>
+      <br />
       <p>
         Breed:{" "}
         <input
           type="text"
           name="breed"
+          className="form-control"
+          style={{ width: 400 }}
           value={revisedData?.breed}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
@@ -72,11 +80,14 @@ function EditDog({ onUpdateDog }) {
           }
         />
       </p>
+      <br />
       <p>
         Age:{" "}
         <input
           type="text"
           name="age"
+          className="form-control"
+          style={{ width: 400 }}
           value={revisedData?.age}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
@@ -86,11 +97,14 @@ function EditDog({ onUpdateDog }) {
           }
         />
       </p>
+      <br />
       <p>
         Photo:{" "}
         <input
           type="text"
           name="pic"
+          className="form-control"
+          style={{ width: 400 }}
           value={revisedData?.pic}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
@@ -100,11 +114,15 @@ function EditDog({ onUpdateDog }) {
           }
         />
       </p>
+      <br />
       <p>
         about:{" "}
-        <input
+        <textarea
           type="text"
           name="about"
+          className="form-control"
+          style={{ width: 400 }}
+          rows="8"
           value={revisedData?.about}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
@@ -114,6 +132,7 @@ function EditDog({ onUpdateDog }) {
           }
         />
       </p>
+      <br />
       <button
         className="btn btn-outline-danger btn-sm"
         type="submit"

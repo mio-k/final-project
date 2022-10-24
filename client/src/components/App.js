@@ -78,7 +78,7 @@ function App() {
           <Route path="playdateform" element={<PlaydateForm />} />
           <Route path="newdogform" element={<NewDogForm />} />
           <Route path="users/:id" element={<User />} />
-          <Route path="dogs/:id" element={<Dog />} />
+          <Route path="dogs/:id" element={<Dog user={user} />} />
           <Route path="yourprofile" element={<YourProfile />} />
           <Route path="dogs/:id/editdog" element={<EditDog />} />
           <Route

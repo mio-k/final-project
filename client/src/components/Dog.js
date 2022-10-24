@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import EditDog from "./EditDog";
 import topbanner from "./img/topbanner.jpeg";
 
-function Dog() {
+function Dog({ user }) {
   const { id } = useParams();
   const [dog, setDog] = useState({
     name: "",
@@ -60,12 +60,14 @@ function Dog() {
             <div className="col-md-6 ml-auto mr-auto text-center">
               <p>{dog.about}</p>
               <br />
-              <Link
-                to={`/dogs/${dog.id}/editdog`}
-                className="btn btn-outline-default btn-round"
-              >
-                <i className="fa fa-cog"></i> Update {dog.name}'s info
-              </Link>
+              {dog.user.id === user.id && (
+                <Link
+                  to={`/dogs/${dog.id}/editdog`}
+                  className="btn btn-outline-default btn-round"
+                >
+                  <i className="fa fa-cog"></i> Update {dog.name}'s info
+                </Link>
+              )}
             </div>
           </div>
         </div>
