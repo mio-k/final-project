@@ -79,7 +79,10 @@ function App() {
           <Route path="newdogform" element={<NewDogForm />} />
           <Route path="users/:id" element={<User />} />
           <Route path="dogs/:id" element={<Dog user={user} />} />
-          <Route path="yourprofile" element={<YourProfile />} />
+          <Route
+            path="yourprofile"
+            element={<YourProfile user={user} items={items} />}
+          />
           <Route path="dogs/:id/editdog" element={<EditDog />} />
           <Route
             path="items/:id"

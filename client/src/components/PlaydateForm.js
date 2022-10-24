@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function PlaydateForm({ onAddItem, user }) {
   const [formData, setFormData] = useState({
@@ -8,7 +7,6 @@ function PlaydateForm({ onAddItem, user }) {
     user_id: user.id,
     sitter_id: 0,
   });
-  let navigate = useNavigate();
 
   function handleChange(e) {
     setFormData({
@@ -34,7 +32,6 @@ function PlaydateForm({ onAddItem, user }) {
       user_id: user.id,
       sitter_id: 0,
     });
-    navigate("/playdates");
   }
 
   return (

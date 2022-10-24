@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 // import { Link, Outlet } from "react-router-dom";
 import PlaydateForm from "./PlaydateForm";
+// import { useNavigate } from "react-router-dom";
 
 function Playdates({ user }) {
   const [playdates, setPlaydates] = useState([]);
+  // let navigate = useNavigate();
 
   const fetchAndSetPlaydates = () => {
     fetch("/playdates")
@@ -17,7 +19,7 @@ function Playdates({ user }) {
 
   function onAddItem(formData) {
     setPlaydates(...playdates, formData);
-    console.log(playdates);
+    // navigate("/playdates");
   }
 
   function handleVolunteerClick(playdate) {
@@ -55,7 +57,7 @@ function Playdates({ user }) {
                 <li className="tableli-who">For: {playdate.dog.name}</li>
                 <li className="tableli-who">
                   {playdate.sitter_id ? (
-                    "care arranged"
+                    "Care arranged."
                   ) : (
                     <button
                       className="btn btn-outline-danger btn-sm"

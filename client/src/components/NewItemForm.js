@@ -118,7 +118,7 @@ function NewItemForm({ onAddItem, user, tags }) {
               />
             </p>
             <p>
-              Category (Hold Ctrl to multi-select):
+              Category (Hold Command to multi-select):
               <select
                 className="form-control"
                 style={{ width: 200 }}
