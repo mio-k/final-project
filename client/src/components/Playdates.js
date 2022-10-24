@@ -4,10 +4,15 @@ import PlaydateForm from "./PlaydateForm";
 
 function Playdates({ user }) {
   const [playdates, setPlaydates] = useState([]);
-  useEffect(() => {
+
+  const fetchAndSetPlaydates = () => {
     fetch("/playdates")
       .then((r) => r.json())
       .then((playdates) => setPlaydates(playdates));
+  };
+
+  useEffect(() => {
+    fetchAndSetPlaydates();
   }, []);
 
   function onAddItem(formData) {
@@ -15,21 +20,20 @@ function Playdates({ user }) {
     console.log(playdates);
   }
 
-  function handleVolunteerClick() {
-    // fetch(`/playdates/${id}`),
-    //   {
-    //     method: "PATCH",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       sitter_id: user.id,
-    //     }),
-    //   }
-    //     .then((r) => r.json())
-    //     .then((updatedPlaydate) => {
-    //       setPlaydates(updatedPlaydate);
-    //     });
+  function handleVolunteerClick(playdate) {
+    fetch(`/playdates/${playdate.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        sitter_id: user.id,
+      }),
+    })
+      .then((r) => r.json())
+      .then((updatedPlaydate) => {
+        fetchAndSetPlaydates();
+      });
   }
 
   return (
@@ -48,7 +52,7 @@ function Playdates({ user }) {
               <ul className="tableul" key={playdate.id}>
                 <li className="tableli-when">{playdate.when}</li>
                 <li className="tableli-howlong">{playdate.howlong}</li>
-                <li className="tableli-who">For: {playdate.user.firstname}</li>
+                <li className="tableli-who">For: {playdate.dog.name}</li>
                 <li className="tableli-who">
                   {playdate.sitter_id ? (
                     "care arranged"
@@ -56,7 +60,7 @@ function Playdates({ user }) {
                     <button
                       className="btn btn-outline-danger btn-sm"
                       type="submit"
-                      onClick={handleVolunteerClick}
+                      onClick={() => handleVolunteerClick(playdate)}
                     >
                       Volunteer
                     </button>

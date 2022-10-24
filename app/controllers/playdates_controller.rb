@@ -3,7 +3,7 @@ class PlaydatesController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def index
-        playdates = Playdate.all 
+        playdates = Playdate.all.order(:id)
         render json: playdates
     end
 
@@ -27,7 +27,7 @@ class PlaydatesController < ApplicationController
         Playdate.find(params[:id])
     end
     def playdate_params
-        params.permit(:when, :howlong, :user_id, :who)
+        params.permit(:when, :howlong, :user_id, :who, :sitter_id)
     end
     def render_not_found_response
         render json: {error: "Playdate not found"}, status: :not_found 

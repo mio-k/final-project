@@ -10,7 +10,7 @@ function NewItemForm({ onAddItem, user, tags }) {
     description: "",
     pic: "",
     user_id: user.id,
-    tags: [],
+    tag_ids: [],
   });
   let navigate = useNavigate();
   const options = [
@@ -23,8 +23,7 @@ function NewItemForm({ onAddItem, user, tags }) {
   // const [selected, setSelected] = useState([]);
 
   function handleChange(e) {
-    console.log(e.target.value);
-    if (e.target.name == "tags") {
+    if (e.target.name == "tag_ids") {
       const value = Array.from(
         e.target.selectedOptions,
         (option) => option.value
@@ -124,15 +123,15 @@ function NewItemForm({ onAddItem, user, tags }) {
                 className="form-control"
                 style={{ width: 200 }}
                 multiple={true}
-                name="tags"
+                name="tag_ids"
                 value={formData.tags}
                 onChange={handleChange}
               >
-                <option value="walking">Walking</option>
-                <option value="grooming">Grooming</option>
-                <option value="food">Food</option>
-                <option value="puppy_care">Puppy Care</option>
-                <option value="play">Play</option>
+                <option value="1">Walking</option>
+                <option value="3">Grooming</option>
+                <option value="2">Food</option>
+                <option value="4">Puppy Care</option>
+                <option value="5">Play</option>
               </select>
             </p>
             <br />

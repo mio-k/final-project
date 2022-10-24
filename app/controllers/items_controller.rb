@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
         Item.find(params[:id])
     end
     def item_params
-        params.permit(:name, :description, :pic, :user_id, :tag_id)
+        params.permit(:name, :description, :pic, :user_id, tag_ids: [])
     end
     def render_not_found_response
         render json: {error: "Item not found"}, status: :not_found 

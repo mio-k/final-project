@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import EditDog from "./EditDog";
 import topbanner from "./img/topbanner.jpeg";
 
@@ -60,10 +60,12 @@ function Dog() {
             <div className="col-md-6 ml-auto mr-auto text-center">
               <p>{dog.about}</p>
               <br />
-
-              <button className="btn btn-outline-default btn-round">
+              <Link
+                to={`/dogs/${dog.id}/editdog`}
+                className="btn btn-outline-default btn-round"
+              >
                 <i className="fa fa-cog"></i> Update {dog.name}'s info
-              </button>
+              </Link>
             </div>
           </div>
         </div>

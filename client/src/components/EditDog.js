@@ -1,16 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-function EditDog({ dog, onUpdateDog }) {
+function EditDog({ onUpdateDog }) {
+  const [dog, setDog] = useState();
+  const [revisedData, setRevisedData] = useState();
+  const { id } = useParams();
   let navigate = useNavigate();
-  const [revisedData, setRevisedData] = useState({
-    name: dog.name,
-    breed: dog.breed,
-    age: dog.age,
-    pic: dog.pic,
-    about: dog.about,
-  });
-  let { id } = useParams();
+
+  useEffect(() => {
+    fetch(`/dogs/${id}`)
+      .then((r) => r.json())
+      .then((dog) => {
+        setDog(dog);
+        setRevisedData({
+          name: dog.name,
+          breed: dog.breed,
+          age: dog.age,
+          pic: dog.pic,
+          about: dog.about,
+        });
+      });
+  }, []);
 
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -31,6 +41,7 @@ function EditDog({ dog, onUpdateDog }) {
         navigate(`/dogs/${id}`);
       });
   }
+
   return (
     <form className="edit-order" onSubmit={handleFormSubmit}>
       <p>
@@ -38,7 +49,7 @@ function EditDog({ dog, onUpdateDog }) {
         <input
           type="text"
           name="name"
-          value={revisedData.name}
+          value={revisedData?.name}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
@@ -52,7 +63,7 @@ function EditDog({ dog, onUpdateDog }) {
         <input
           type="text"
           name="breed"
-          value={revisedData.breed}
+          value={revisedData?.breed}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
@@ -66,7 +77,7 @@ function EditDog({ dog, onUpdateDog }) {
         <input
           type="text"
           name="age"
-          value={revisedData.age}
+          value={revisedData?.age}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
@@ -80,7 +91,7 @@ function EditDog({ dog, onUpdateDog }) {
         <input
           type="text"
           name="pic"
-          value={revisedData.pic}
+          value={revisedData?.pic}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
@@ -94,7 +105,7 @@ function EditDog({ dog, onUpdateDog }) {
         <input
           type="text"
           name="about"
-          value={revisedData.about}
+          value={revisedData?.about}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
