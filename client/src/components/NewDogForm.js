@@ -6,7 +6,6 @@ function NewDogForm({ user, onAddDog }) {
     breed: "",
     age: 0,
     about: "",
-    user_id: user.id,
   });
 
   function handleChange(e) {
@@ -26,7 +25,7 @@ function NewDogForm({ user, onAddDog }) {
       body: JSON.stringify(formData),
     })
       .then((r) => r.json())
-      .then((formData) => onAddDog(formData));
+      .then((newDog) => onAddDog(newDog));
     setFormData({
       name: "",
       breed: "",

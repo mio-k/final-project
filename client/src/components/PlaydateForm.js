@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function PlaydateForm({ onAddItem, user }) {
   const [formData, setFormData] = useState({
@@ -37,33 +38,52 @@ function PlaydateForm({ onAddItem, user }) {
   return (
     <form className="order-form" onSubmit={handleSubmit}>
       <h3>Add a playdate request</h3>
-      <p>Need someone to watch {user.dog.name}? Arrange a playdate here.</p>
-      <p>
-        When:{" "}
-        <input
-          type="text"
-          className="form-control"
-          style={{ width: 300 }}
-          name="when"
-          value={formData.when}
-          onChange={handleChange}
-        />
-      </p>
-      <p>
-        How long:{" "}
-        <input
-          type="text"
-          className="form-control"
-          style={{ width: 300 }}
-          name="howlong"
-          value={formData.howlong}
-          onChange={handleChange}
-        />
-      </p>
-      <br />
-      <button className="btn btn-outline-danger btn-sm" type="submit">
-        Add request
-      </button>
+      {user.dog ? (
+        <>
+          <p>Need someone to watch {user.dog.name}? Arrange a playdate here.</p>
+          <p>
+            When:{" "}
+            <input
+              type="text"
+              className="form-control"
+              style={{ width: 300 }}
+              name="when"
+              value={formData.when}
+              onChange={handleChange}
+            />
+          </p>
+          <p>
+            How long:{" "}
+            <input
+              type="text"
+              className="form-control"
+              style={{ width: 300 }}
+              name="howlong"
+              value={formData.howlong}
+              onChange={handleChange}
+            />
+          </p>
+          <br />
+          <button className="btn btn-outline-danger btn-sm" type="submit">
+            Add request
+          </button>
+        </>
+      ) : (
+        <>
+          <br />
+          <h6>
+            You can't add a playdate request until you add your dog to the
+            database. <br />
+          </h6>
+          <br />
+          <Link
+            to={`/newdogform`}
+            className="btn btn-outline-default btn-round"
+          >
+            <i className="fa fa-cog"></i> Add your dog to the database
+          </Link>
+        </>
+      )}
     </form>
   );
 }
