@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function YourProfile({ user, items }) {
   const filteredItems = items.filter((item) => {
@@ -25,15 +26,39 @@ function YourProfile({ user, items }) {
                 <br />
               </h4>
               <p>Contact info: {user.contact}</p>
-              <p>Dog's name: {user.dog.name}</p>
+              {user.dog ? (
+                <p>Dog's name: {user.dog.name}</p>
+              ) : (
+                <>
+                  <p>You have not added your dog to the database.</p>
+                  <Link
+                    to={`/newdogform`}
+                    className="btn btn-outline-default btn-round"
+                  >
+                    <i className="fa fa-cog"></i> Add your dog to the database
+                  </Link>
+                </>
+              )}
             </div>
             <div className="name">
               <h5>Free items you are offering</h5>
-              <ul>
-                {filteredItems.map((item) => {
-                  return <li>{item.name}</li>;
-                })}
-              </ul>
+              {user.item ? (
+                <ul>
+                  {filteredItems.map((item) => {
+                    return <li>{item.name}</li>;
+                  })}
+                </ul>
+              ) : (
+                <>
+                  <p>You are not offering any free item</p>
+                  <Link
+                    to={`/newitemform`}
+                    className="btn btn-outline-default btn-round"
+                  >
+                    <i className="fa fa-cog"></i> Add a free item to offer
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

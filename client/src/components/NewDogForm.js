@@ -6,6 +6,7 @@ function NewDogForm({ user, onAddDog }) {
     breed: "",
     age: 0,
     about: "",
+    user_id: user.id,
   });
 
   function handleChange(e) {
@@ -31,6 +32,7 @@ function NewDogForm({ user, onAddDog }) {
       breed: "",
       age: 0,
       about: "",
+      user_id: user.id,
     });
   }
 
@@ -73,7 +75,7 @@ function NewDogForm({ user, onAddDog }) {
             <p>Introduction: </p>
             <textarea
               type="text"
-              name="color"
+              name="about"
               className="form-control"
               style={{ width: 600 }}
               value={formData.about}
