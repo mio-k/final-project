@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
-import EditDog from "./EditDog";
+import { useParams, Link } from "react-router-dom";
 import topbanner from "./img/topbanner.jpeg";
 
 function Dog({ user }) {
@@ -16,7 +15,6 @@ function Dog({ user }) {
       lastname: "",
     },
   });
-  const navigate = useNavigate();
   useEffect(() => {
     fetch(`/dogs/${id}`)
       .then((r) => r.json())
@@ -39,7 +37,7 @@ function Dog({ user }) {
           <div className="owner">
             <div className="avatar">
               <img
-                src={dog.pic}
+                src={dog.pic ? dog.pic : "/img/placeholderpic.png"}
                 alt={dog.name}
                 className="img-circle img-no-padding img-responsive"
               />

@@ -1,6 +1,5 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import Dog from "./Dog";
+import { useNavigate } from "react-router-dom";
 
 function DogCard({ dog }) {
   let navigate = useNavigate();

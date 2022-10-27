@@ -39,9 +39,6 @@ function ItemList({ items }) {
       <Link to={`/newitemform`} className="btn btn-outline-default btn-round">
         <i className="fa fa-cog"></i> Offer free item
       </Link>
-      {/* <Link style={{ display: "block", margin: "1rem 0" }} to={`/newitemform`}>
-        <p>Offer free items from here</p>
-      </Link> */}
       <h3>Currently available free items</h3>
       <br />
       <Search search={search} onHandleSearch={setSearch} />

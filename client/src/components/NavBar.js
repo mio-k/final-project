@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function NavBar({ setUser }) {
   function handleLogoutClick() {
@@ -14,28 +15,15 @@ function NavBar({ setUser }) {
       <nav className="navbar navbar-expand-lg fixed-top " color-on-scroll="300">
         <div className="container">
           <div className="navbar-translate">
-            <a
+            <Link
               className="navbar-brand"
-              href="/"
+              to="/"
               rel="tooltip"
               title="Dog Pod Portal"
               data-placement="bottom"
             >
               Home
-            </a>
-            {/* <button
-              className="navbar-toggler navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navigation"
-              aria-controls="navigation-index"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-bar bar1"></span>
-              <span className="navbar-toggler-bar bar2"></span>
-              <span className="navbar-toggler-bar bar3"></span>
-            </button> */}
+            </Link>
           </div>
           <div
             className="collapse navbar-collapse justify-content-end"
@@ -43,24 +31,24 @@ function NavBar({ setUser }) {
           >
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a href="/doglist" className="nav-link">
+                <Link to="/doglist" className="nav-link">
                   <i className="nc-icon nc-alert-circle-i"></i> Members
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="/itemlist" className="nav-link">
+                <Link to="/itemlist" className="nav-link">
                   <i className="nc-icon nc-diamond"></i> Free Stuff
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="/playdates" className="nav-link">
+                <Link to="/playdates" className="nav-link">
                   <i className="nc-icon nc-favourite-28"></i> Playdates
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="/yourprofile" className="nav-link">
+                <Link to="/yourprofile" className="nav-link">
                   <i className="nc-icon nc-circle-10"></i> Your Profile
-                </a>
+                </Link>
               </li>
               <button
                 variant="outline"

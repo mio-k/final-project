@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-// import { Link, Outlet } from "react-router-dom";
 import PlaydateForm from "./PlaydateForm";
-// import { useNavigate } from "react-router-dom";
 
 function Playdates({ user }) {
   const [playdates, setPlaydates] = useState([]);
-  // let navigate = useNavigate();
 
   const fetchAndSetPlaydates = () => {
     fetch("/playdates")
@@ -18,8 +15,7 @@ function Playdates({ user }) {
   }, []);
 
   function onAddItem(formData) {
-    setPlaydates(...playdates, formData);
-    // navigate("/playdates");
+    setPlaydates([...playdates, formData]);
   }
 
   function handleVolunteerClick(playdate) {

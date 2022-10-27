@@ -1,12 +1,8 @@
 import React from "react";
 
 function YourProfile({ user, items }) {
-  console.log(items);
   const filteredItems = items.filter((item) => {
     return item.user.id === user.id;
-  });
-  const firstItem = filteredItems.map((item) => {
-    console.log(item.name);
   });
   return (
     <>
@@ -35,7 +31,7 @@ function YourProfile({ user, items }) {
               <h5>Free items you are offering</h5>
               <ul>
                 {filteredItems.map((item) => {
-                  <li>`${item.name}`</li>;
+                  return <li>{item.name}</li>;
                 })}
               </ul>
             </div>

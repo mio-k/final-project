@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Dog from "./Dog";
 import EditItem from "./EditItem";
 
 function Item({ onDeleteItem, user }) {
@@ -30,9 +29,6 @@ function Item({ onDeleteItem, user }) {
   function onUpdateItem(updatedItem) {
     setItem(updatedItem);
   }
-  function handleEditItem() {
-    navigate(`items/${id}/edititem`);
-  }
 
   return (
     <div className="profile-page">
@@ -41,12 +37,12 @@ function Item({ onDeleteItem, user }) {
           <div className="owner">
             {item ? (
               <div className="name">
-                <h4 className="title">
+                <h4 className="title" id={item.id}>
                   {item.name}
                   <br />
                 </h4>
                 <img
-                  src={item.pic}
+                  src={item.pic ? item.pic : "/placeholderpic.png"}
                   className="img-rounded img-responsive"
                   alt={item.name}
                 />

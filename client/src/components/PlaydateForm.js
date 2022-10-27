@@ -25,7 +25,7 @@ function PlaydateForm({ onAddItem, user }) {
       body: JSON.stringify(formData),
     })
       .then((r) => r.json())
-      .then((formData) => onAddItem(formData));
+      .then((newPlaydate) => onAddItem(newPlaydate));
     setFormData({
       when: "",
       howlong: "",

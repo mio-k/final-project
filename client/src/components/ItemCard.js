@@ -1,6 +1,5 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import Item from "./Item";
+import { useNavigate } from "react-router-dom";
 
 function ItemCard({ item }) {
   let navigate = useNavigate();

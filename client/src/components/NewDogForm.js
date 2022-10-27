@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { Button, input } from "../styles";
 
 function NewDogForm({ user, onAddDog }) {
   const [formData, setFormData] = useState({

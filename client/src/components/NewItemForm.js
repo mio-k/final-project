@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-// import { Input } from "../styles";
 import { useNavigate } from "react-router-dom";
-// import { MultiSelect } from "react-multi-select-component";
 import topbanner from "./img/topbanner.jpeg";
 
-function NewItemForm({ onAddItem, user, tags }) {
+function NewItemForm({ onAddItem, user }) {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -20,7 +18,6 @@ function NewItemForm({ onAddItem, user, tags }) {
     { label: "Puppy Care", value: "puppy_care" },
     { label: "Play", value: "play" },
   ];
-  // const [selected, setSelected] = useState([]);
 
   function handleChange(e) {
     if (e.target.name == "tag_ids") {
@@ -28,7 +25,6 @@ function NewItemForm({ onAddItem, user, tags }) {
         e.target.selectedOptions,
         (option) => option.value
       );
-      console.log(value);
       setFormData({
         ...formData,
         [e.target.name]: value,
@@ -43,7 +39,6 @@ function NewItemForm({ onAddItem, user, tags }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData);
     fetch("/items", {
       method: "POST",
       headers: {

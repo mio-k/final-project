@@ -27,7 +27,6 @@ function EditItem({ item, onUpdateItem }) {
     })
       .then((r) => r.json())
       .then((updatedItem) => {
-        console.log(updatedItem);
         onUpdateItem(updatedItem);
         setIsEditing(true);
         navigate(`/items/${id}`);

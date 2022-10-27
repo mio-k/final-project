@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import DogCard from "./DogCard";
-// import { Link, Outlet } from "react-router-dom";
 
 function DogList() {
   const [dogs, setDogs] = useState([]);

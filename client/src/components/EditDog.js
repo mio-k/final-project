@@ -3,7 +3,13 @@ import { useParams, useNavigate } from "react-router-dom";
 
 function EditDog({ onUpdateDog }) {
   const [dog, setDog] = useState();
-  const [revisedData, setRevisedData] = useState();
+  const [revisedData, setRevisedData] = useState({
+    name: "",
+    breed: "",
+    age: 0,
+    pic: "",
+    about: "",
+  });
   const { id } = useParams();
   let navigate = useNavigate();
 
@@ -54,7 +60,7 @@ function EditDog({ onUpdateDog }) {
           name="name"
           className="form-control"
           style={{ width: 400 }}
-          value={revisedData?.name}
+          value={revisedData.name}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
@@ -71,7 +77,7 @@ function EditDog({ onUpdateDog }) {
           name="breed"
           className="form-control"
           style={{ width: 400 }}
-          value={revisedData?.breed}
+          value={revisedData.breed}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
@@ -88,7 +94,7 @@ function EditDog({ onUpdateDog }) {
           name="age"
           className="form-control"
           style={{ width: 400 }}
-          value={revisedData?.age}
+          value={revisedData.age}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
@@ -105,7 +111,7 @@ function EditDog({ onUpdateDog }) {
           name="pic"
           className="form-control"
           style={{ width: 400 }}
-          value={revisedData?.pic}
+          value={revisedData.pic}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
@@ -123,7 +129,7 @@ function EditDog({ onUpdateDog }) {
           className="form-control"
           style={{ width: 400 }}
           rows="8"
-          value={revisedData?.about}
+          value={revisedData.about}
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,

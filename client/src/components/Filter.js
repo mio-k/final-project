@@ -8,11 +8,7 @@ function Filter({ filterValue, onChangeCategory }) {
     <div className="filter">
       <label>
         <label>Filter by category: </label>
-        <select
-          onChange={handleChangeCategory}
-          value={filterValue}
-          // className="filter"
-        >
+        <select onChange={handleChangeCategory} value={filterValue}>
           <option value="All">All</option>
           <option value="walking">Walking</option>
           <option value="food">Food</option>
