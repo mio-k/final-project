@@ -6,7 +6,7 @@ function NewDogForm({ user, onAddDog }) {
     breed: "",
     age: 0,
     about: "",
-    user_id: user.id,
+    user_id: 0,
   });
 
   function handleChange(e) {

@@ -9,7 +9,7 @@ function EditItem({ item, onUpdateItem }) {
     pic: item.pic,
     category: item.category,
   });
-  let { id } = useParams();
+  const { id } = useParams();
   const [isEditing, setIsEditing] = useState(false);
 
   function handleFormSubmit(e) {
@@ -38,7 +38,7 @@ function EditItem({ item, onUpdateItem }) {
       <div style={{ textAlign: "left" }}>
         <h3>Edit Item</h3>
         {isEditing === true ? (
-          <p>Your item is updated successfully.</p>
+          <h4>Your item is updated successfully.</h4>
         ) : (
           <p>Make edits to your post below.</p>
         )}

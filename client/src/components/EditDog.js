@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-function EditDog({ onUpdateDog }) {
+function EditDog() {
   const [dog, setDog] = useState();
   const [revisedData, setRevisedData] = useState({
     name: "",
@@ -11,7 +11,7 @@ function EditDog({ onUpdateDog }) {
     about: "",
   });
   const { id } = useParams();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`/dogs/${id}`)
@@ -37,7 +37,10 @@ function EditDog({ onUpdateDog }) {
       },
       body: JSON.stringify({
         name: revisedData.name,
-        description: revisedData.description,
+        breed: revisedData.breed,
+        age: revisedData.age,
+        pic: revisedData.pic,
+        about: revisedData.about,
       }),
     })
       .then((r) => r.json())
@@ -45,7 +48,7 @@ function EditDog({ onUpdateDog }) {
         onUpdateDog(updatedDog);
       });
   }
-  function onUpdateDog(updatedDog) {
+  function onUpdateDog() {
     navigate(`/dogs/${id}`);
   }
 
@@ -81,7 +84,7 @@ function EditDog({ onUpdateDog }) {
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
-              name: e.target.value,
+              breed: e.target.value,
             }))
           }
         />
@@ -98,7 +101,7 @@ function EditDog({ onUpdateDog }) {
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
-              name: e.target.value,
+              age: e.target.value,
             }))
           }
         />
@@ -115,7 +118,7 @@ function EditDog({ onUpdateDog }) {
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
-              name: e.target.value,
+              pic: e.target.value,
             }))
           }
         />
@@ -133,7 +136,7 @@ function EditDog({ onUpdateDog }) {
           onChange={(e) =>
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
-              description: e.target.value,
+              about: e.target.value,
             }))
           }
         />

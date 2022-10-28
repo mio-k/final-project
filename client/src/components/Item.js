@@ -62,7 +62,9 @@ function Item({ onDeleteItem, user }) {
                 <ul>
                   Category:{" "}
                   {item.tags.map((tag) => (
-                    <li className="list-unstyled">{tag.category}</li>
+                    <li className="list-unstyled" key={tag.id}>
+                      {tag.category}
+                    </li>
                   ))}
                 </ul>
                 {isEditing ? (
