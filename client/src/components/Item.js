@@ -5,7 +5,7 @@ import EditItem from "./EditItem";
 function Item({ onDeleteItem, user }) {
   const { id } = useParams();
   const [isEditing, setIsEditing] = useState(false);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const [item, setItem] = useState({
     name: "",
     description: "",

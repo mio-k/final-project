@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function ItemCard({ item }) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   function handleClick() {
     navigate(`/items/${item.id}`);

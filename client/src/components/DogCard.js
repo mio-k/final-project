@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function DogCard({ dog }) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   function handleClick() {
     navigate(`/dogs/${dog.id}`);
   }

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import NewDogForm from "./NewDogForm";
 
 function User() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const { id } = useParams();
   const [member, setMember] = useState({
     id: 0,

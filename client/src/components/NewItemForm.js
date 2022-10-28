@@ -10,7 +10,7 @@ function NewItemForm({ onAddItem, user }) {
     user_id: user.id,
     tag_ids: [],
   });
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const options = [
     { label: "Walking", value: "walking" },
     { label: "Grooming", value: "grooming" },
