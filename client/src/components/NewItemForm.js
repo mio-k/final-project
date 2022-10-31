@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { uploadToS3 } from "../lib/aws";
 import topbanner from "./img/topbanner.jpeg";
 
 function NewItemForm({ onAddItem, user }) {
+  const file = useRef(null);
+
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -10,7 +13,9 @@ function NewItemForm({ onAddItem, user }) {
     user_id: user.id,
     tag_ids: [],
   });
+
   const navigate = useNavigate();
+
   const options = [
     { label: "Walking", value: "walking" },
     { label: "Grooming", value: "grooming" },
@@ -18,6 +23,10 @@ function NewItemForm({ onAddItem, user }) {
     { label: "Puppy Care", value: "puppy_care" },
     { label: "Play", value: "play" },
   ];
+
+  function handleFileChange(event) {
+    file.current = event.target.files[0];
+  }
 
   function handleChange(e) {
     if (e.target.name == "tag_ids") {
@@ -39,6 +48,23 @@ function NewItemForm({ onAddItem, user }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    // get the presigned url to upload file
+    fetch("/items/presigned-url", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ file_name: "test-file" }),
+    })
+      .then((resp) => resp.json())
+      .then((uploadParamsJSON) => {
+        uploadToS3(uploadParamsJSON, file.current);
+      });
+
+    // upload image to s3
+
+    // create new item in db
     fetch("/items", {
       method: "POST",
       headers: {
@@ -106,10 +132,9 @@ function NewItemForm({ onAddItem, user }) {
               <input
                 className="form-control"
                 style={{ width: 300 }}
-                type="text"
+                type="file"
                 name="pic"
-                value={formData.pic}
-                onChange={handleChange}
+                onChange={handleFileChange}
               />
             </p>
             <p>
