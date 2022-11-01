@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/authorized", to: "users#authenticate"
   post "/items/presigned-url", to: "items#presigned_url"
+  post "/dogs/presigned-url", to: "dogs#presigned_url"
 
   resources :users, only: [:show]
   resources :dogs, only: [:index, :show, :create, :update]
