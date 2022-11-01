@@ -49,37 +49,40 @@ function NewItemForm({ onAddItem, user }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // get the presigned url to upload file
+    // 1. get the presigned url to upload file
     fetch("/items/presigned-url", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ file_name: "test-file" }),
+      body: JSON.stringify({ file_name: file.current.name }),
     })
       .then((resp) => resp.json())
       .then((uploadParamsJSON) => {
-        uploadToS3(uploadParamsJSON, file.current);
+        // 2. upload image to s3
+        uploadToS3(uploadParamsJSON, file.current).then((respJSON) => {
+          const location = respJSON.Location;
+
+          // 3. create new item in db
+          fetch("/items", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ ...formData, pic: location[0] }),
+          })
+            .then((r) => r.json())
+            .then((formData) => onAddItem(formData));
+
+          setFormData({
+            name: "",
+            description: "",
+            pic: "",
+            tags: [],
+          });
+        });
       });
 
-    // upload image to s3
-
-    // create new item in db
-    fetch("/items", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((r) => r.json())
-      .then((formData) => onAddItem(formData));
-    setFormData({
-      name: "",
-      description: "",
-      pic: "",
-      tags: [],
-    });
     navigate("/itemlist");
   }
 

@@ -7,7 +7,7 @@ function EditItem({ item, onUpdateItem }) {
     name: item.name,
     description: item.description,
     pic: item.pic,
-    category: item.category,
+    tag_ids: item.tag_ids,
   });
   const { id } = useParams();
   const [isEditing, setIsEditing] = useState(false);
@@ -20,10 +20,7 @@ function EditItem({ item, onUpdateItem }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        name: revisedData.name,
-        description: revisedData.description,
-      }),
+      body: JSON.stringify(revisedData),
     })
       .then((r) => r.json())
       .then((updatedItem) => {
@@ -31,6 +28,17 @@ function EditItem({ item, onUpdateItem }) {
         setIsEditing(true);
         navigate(`/items/${id}`);
       });
+  }
+
+  function handleCategoryChange(e) {
+    const value = Array.from(
+      e.target.selectedOptions,
+      (option) => option.value
+    );
+    setRevisedData({
+      ...revisedData,
+      [e.target.name]: value,
+    });
   }
 
   return (
@@ -97,20 +105,15 @@ function EditItem({ item, onUpdateItem }) {
             className="form-control"
             style={{ width: 200 }}
             multiple={true}
-            name="tags"
-            value={revisedData.tags}
-            onChange={(e) =>
-              setRevisedData((previousRevisedData) => ({
-                ...previousRevisedData,
-                description: e.target.value,
-              }))
-            }
+            name="tag_ids"
+            value={revisedData.tag_ids}
+            onChange={handleCategoryChange}
           >
-            <option value="walking">Walking</option>
-            <option value="grooming">Grooming</option>
-            <option value="food">Food</option>
-            <option value="puppy_care">Puppy Care</option>
-            <option value="play">Play</option>
+            <option value="1">Walking</option>
+            <option value="3">Grooming</option>
+            <option value="2">Food</option>
+            <option value="4">Puppy Care</option>
+            <option value="5">Play</option>
           </select>
         </p>
       </div>

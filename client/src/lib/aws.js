@@ -16,19 +16,22 @@ export function uploadToS3(uploadParams, file) {
   formData.append("file", file);
 
   // send request to S3 for the file upload.
-  fetch(url, {
+  return fetch(url, {
     method: "POST",
     body: formData,
-  }).then((awsResponse) => {
-    // S3 returns its response in XML(yeah I know :D)
-    xml2js.parseString(awsResponse, (err, result) => {
-      // parse it
-      if (err) {
-        // Notify the user that file upload has failed.
-        console.log("something went wrong, error:", err);
-      }
-      // if all goes well
-      return result;
+  })
+    .then((resp) => resp.text())
+    .then((awsResponse) => {
+      // S3 returns its response in XML(yeah I know :D)
+      return xml2js
+        .parseStringPromise(awsResponse)
+        .then((result) => {
+          // if all goes well
+          return result.PostResponse;
+        })
+        .catch((error) => {
+          // Notify the user that file upload has failed.
+          console.log("something went wrong, error:", error);
+        });
     });
-  });
 }
