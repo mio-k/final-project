@@ -19,6 +19,7 @@ class DogsController < ApplicationController
         dog.update(dog_params)
         render json: dog
     end
+
     def presigned_url
         return unless params[:file_name]
         file_name = params[:file_name].gsub(/\s+/, '') #remove whitespace from the file name.
@@ -55,4 +56,10 @@ class DogsController < ApplicationController
     def render_unprocessable_entity_response(exception)
         render json: { errors: exception.record.errors.full_messages}, status: :unprocessable_entity 
     end 
+    def generate_key(file_name)
+        # Append a unique id to distinguish 2 files with same name.
+        # We can use timestamp as well in place of uuid.
+        random_file_key = SecureRandom.uuid
+        "#{Rails.env}/attachment/#{random_file_key}-#{file_name}"
+    end
 end

@@ -25,7 +25,7 @@ class UsersController < ApplicationController
         User.find(params[:id])
     end
     def user_params
-        params.permit(:firstname, :lastname, :username, :password, :pic, :contact )
+        params.permit(:firstname, :lastname, :username, :password, :contact )
     end
     def render_not_found_response
         render json: {error: "Dog not found"}, status: :not_found 

@@ -10,7 +10,6 @@ function NewDogForm({ user, onAddDog }) {
     breed: "",
     age: 0,
     about: "",
-    pic: "",
     user_id: 0,
   });
 
@@ -58,7 +57,6 @@ function NewDogForm({ user, onAddDog }) {
             breed: "",
             age: 0,
             about: "",
-            pic: "",
             user_id: 0,
           });
         });

@@ -6,7 +6,6 @@ function EditUser({ user }) {
     firstname: "",
     lastname: "",
     contact: "",
-    pic: "",
   });
   const { id } = useParams();
   const navigate = useNavigate();
@@ -22,7 +21,6 @@ function EditUser({ user }) {
         firstname: revisedData.firstname,
         lastname: revisedData.lastname,
         contact: revisedData.contact,
-        pic: revisedData.pic,
       }),
     })
       .then((r) => r.json())
@@ -84,23 +82,6 @@ function EditUser({ user }) {
             setRevisedData((previousRevisedData) => ({
               ...previousRevisedData,
               contact: e.target.value,
-            }))
-          }
-        />
-      </p>
-      <br />
-      <p>
-        Photo:{" "}
-        <input
-          type="text"
-          name="pic"
-          className="form-control"
-          style={{ width: 400 }}
-          value={revisedData.pic}
-          onChange={(e) =>
-            setRevisedData((previousRevisedData) => ({
-              ...previousRevisedData,
-              pic: e.target.value,
             }))
           }
         />
