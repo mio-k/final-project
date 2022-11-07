@@ -15,11 +15,14 @@ import Item from "./Item";
 import EditItem from "./EditItem";
 import EditDog from "./EditDog";
 import Home from "./Home";
+import { useDispatch } from "react-redux";
+import { fetchItems } from "../redux/slices/itemsSlice";
 
 function App() {
   const [user, setUser] = useState(null);
   const [items, setItems] = useState([]);
   const [tags, setTags] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // auto-login
@@ -30,10 +33,10 @@ function App() {
     });
   }, []);
 
+  // Fetch Items into redux store when app loads
   useEffect(() => {
-    fetch("/items")
-      .then((r) => r.json())
-      .then((allItems) => setItems(allItems));
+    const fetchItemsThunk = fetchItems();
+    dispatch(fetchItemsThunk);
   }, []);
 
   useEffect(() => {
@@ -47,6 +50,7 @@ function App() {
       return [...prevItems, newItem];
     });
   }
+
   if (!user) return <Login onLogin={setUser} />;
 
   function onDeleteItem(id) {
@@ -65,7 +69,7 @@ function App() {
         <Routes>
           <Route path="doglist" element={<DogList />} />
           <Route path="/" element={<Home />} />
-          <Route path="itemList" element={<ItemList items={items} />} />
+          <Route path="itemList" element={<ItemList />} />
           <Route
             path="newitemform"
             element={
@@ -74,7 +78,7 @@ function App() {
           />
           <Route path="playdates" element={<Playdates user={user} />} />
           <Route path="playdateform" element={<PlaydateForm />} />
-          <Route path="newdogform" element={<NewDogForm />} />
+          <Route path="newdogform" element={<NewDogForm user={user} />} />
           <Route path="users/:id" element={<User />} />
           <Route path="dogs/:id" element={<Dog user={user} />} />
           <Route

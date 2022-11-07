@@ -10,7 +10,7 @@ function NewDogForm({ user, onAddDog }) {
     breed: "",
     age: 0,
     about: "",
-    user_id: 0,
+    user_id: user.id,
   });
 
   function handleFileChange(event) {
@@ -50,7 +50,7 @@ function NewDogForm({ user, onAddDog }) {
             body: JSON.stringify({ ...formData, pic: location[0] }),
           })
             .then((r) => r.json())
-            .then((formData) => onAddDog(formData));
+            .then((formData) => navigate("/doglist"));
 
           setFormData({
             name: "",
@@ -61,8 +61,6 @@ function NewDogForm({ user, onAddDog }) {
           });
         });
       });
-
-    navigate("/doglist");
   }
 
   return (

@@ -3,22 +3,26 @@ import Search from "./Search";
 import Filter from "./Filter";
 import { Link } from "react-router-dom";
 import ItemCard from "./ItemCard";
+import { useSelector } from "react-redux";
 
-function ItemList({ items }) {
+function ItemList() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
-
+  const itemsArray = Object.values(
+    useSelector((state) => state.items.entities)
+  );
   function onChangeCategory(category) {
     setFilter(category);
   }
   const filteredList =
     filter === "All"
-      ? items
-      : items.filter((item) => {
+      ? itemsArray
+      : itemsArray.filter((item) => {
           return item.tags.some((tag) => {
             return tag.category === filter;
           });
         });
+
   const filteredItems = filteredList.filter((item) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
   });

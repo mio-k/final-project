@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { uploadToS3 } from "../lib/aws";
+import { createItem } from "../lib/client";
 import topbanner from "./img/topbanner.jpeg";
 
 function NewItemForm({ onAddItem, user }) {
@@ -62,17 +63,10 @@ function NewItemForm({ onAddItem, user }) {
         // 2. upload image to s3
         uploadToS3(uploadParamsJSON, file.current).then((respJSON) => {
           const location = respJSON.Location;
+          const newItemParams = { ...formData, pick: location[0] };
 
-          // 3. create new item in db
-          fetch("/items", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ ...formData, pic: location[0] }),
-          })
-            .then((r) => r.json())
-            .then((formData) => onAddItem(formData));
+          // 3. create new item in db then add to all items
+          createItem(newItemParams).then((newItem) => onAddItem(newItem));
 
           setFormData({
             name: "",
