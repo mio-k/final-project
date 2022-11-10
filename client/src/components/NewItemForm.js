@@ -1,11 +1,14 @@
 import React, { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { uploadToS3 } from "../lib/aws";
-import { createItem } from "../lib/client";
+import { createItem, getPresignedURL } from "../lib/client";
+import { saveNewItem } from "../redux/slices/itemsSlice";
 import topbanner from "./img/topbanner.jpeg";
 
 function NewItemForm({ onAddItem, user }) {
   const file = useRef(null);
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -51,31 +54,23 @@ function NewItemForm({ onAddItem, user }) {
     e.preventDefault();
 
     // 1. get the presigned url to upload file
-    fetch("/items/presigned-url", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ file_name: file.current.name }),
-    })
-      .then((resp) => resp.json())
-      .then((uploadParamsJSON) => {
-        // 2. upload image to s3
-        uploadToS3(uploadParamsJSON, file.current).then((respJSON) => {
-          const location = respJSON.Location;
-          const newItemParams = { ...formData, pick: location[0] };
+    getPresignedURL(file.current.name).then((uploadParamsJSON) => {
+      // 2. upload image to s3
+      uploadToS3(uploadParamsJSON, file.current).then((respJSON) => {
+        const location = respJSON.Location;
+        const newItemParams = { ...formData, pic: location[0] };
 
-          // 3. create new item in db then add to all items
-          createItem(newItemParams).then((newItem) => onAddItem(newItem));
+        // 3. create new item in db then add to all items
+        dispatch(saveNewItem(newItemParams));
 
-          setFormData({
-            name: "",
-            description: "",
-            pic: "",
-            tags: [],
-          });
+        setFormData({
+          name: "",
+          description: "",
+          pic: "",
+          tags: [],
         });
       });
+    });
 
     navigate("/itemlist");
   }
@@ -132,6 +127,7 @@ function NewItemForm({ onAddItem, user }) {
                 type="file"
                 name="pic"
                 onChange={handleFileChange}
+                required
               />
             </p>
             <p>

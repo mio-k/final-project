@@ -1,33 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import EditItem from "./EditItem";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteItem } from "../redux/slices/itemsSlice";
 
 function Item({ onDeleteItem, user }) {
-  const { id } = useParams();
-  const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
-  const [item, setItem] = useState({
-    name: "",
-    description: "",
-    user: "",
-    tags: [],
+  const dispatch = useDispatch();
+
+  const { id } = useParams();
+  const item = useSelector((state) => {
+    const items = state.items.entities;
+    return items[id];
   });
-  useEffect(() => {
-    fetch(`/items/${id}`)
-      .then((r) => r.json())
-      .then((individualItem) => setItem(individualItem));
-  }, []);
+
+  const [isEditing, setIsEditing] = useState(false);
 
   function handleDeleteClick() {
-    fetch(`/items/${id}`, {
-      method: "DELETE",
-    }).then(() => {
-      onDeleteItem(id);
+    dispatch(deleteItem({ id })).then(() => {
       navigate(`/itemlist`);
     });
-  }
-  function onUpdateItem(updatedItem) {
-    setItem(updatedItem);
   }
 
   return (
@@ -67,11 +59,7 @@ function Item({ onDeleteItem, user }) {
                     </li>
                   ))}
                 </ul>
-                {isEditing ? (
-                  <EditItem item={item} onUpdateItem={onUpdateItem} />
-                ) : (
-                  ""
-                )}
+                {isEditing ? <EditItem item={item} /> : ""}
                 {item.user.id === user.id && (
                   <>
                     <button

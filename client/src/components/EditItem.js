@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
+import { updateItem } from "../redux/slices/itemsSlice";
 
 function EditItem({ item, onUpdateItem }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [revisedData, setRevisedData] = useState({
     name: item.name,
     description: item.description,
@@ -15,19 +18,12 @@ function EditItem({ item, onUpdateItem }) {
   function handleFormSubmit(e) {
     e.preventDefault();
     setIsEditing(false);
-    fetch(`/items/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(revisedData),
-    })
-      .then((r) => r.json())
-      .then((updatedItem) => {
-        onUpdateItem(updatedItem);
+    dispatch(updateItem({ id: item.id, updateItemParams: revisedData })).then(
+      () => {
         setIsEditing(true);
         navigate(`/items/${id}`);
-      });
+      }
+    );
   }
 
   function handleCategoryChange(e) {

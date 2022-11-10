@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
     def destroy
         item = find_item
         item.destroy
-        head :no_content
+        render json: item, status: :ok
     end
 
     def presigned_url
