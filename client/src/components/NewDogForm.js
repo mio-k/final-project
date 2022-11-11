@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { uploadToS3 } from "../lib/aws";
 import { useNavigate } from "react-router-dom";
+import topbanner from "./img/topbanner.jpeg";
 
 function NewDogForm({ user, onAddDog }) {
   const file = useRef(null);
@@ -64,11 +65,26 @@ function NewDogForm({ user, onAddDog }) {
   }
 
   return (
-    <div className="section profile-content">
-      <div className="container">
-        <div className="owner">
-          <form className="form" onSubmit={handleSubmit}>
+    <>
+      <div
+        className="page-header page-header-xs"
+        style={{
+          backgroundImage: `url(${topbanner})`,
+        }}
+      ></div>
+      <div className="section profile-content">
+        <div className="container">
+          <div className="owner">
             <h3>Add Your Dog</h3>
+            <p>
+              Add your dog to the Dogpod database.
+              <br />
+              Until you add your dog you cannot request a playdate.
+              <br />
+              All fields are required.
+            </p>
+          </div>
+          <form className="order-form" onSubmit={handleSubmit}>
             <p>Dog's name: </p>
             <input
               type="text"
@@ -77,6 +93,7 @@ function NewDogForm({ user, onAddDog }) {
               style={{ width: 300 }}
               value={formData.name}
               onChange={handleChange}
+              required
             />
             <br />
             <p>Breed: </p>
@@ -87,6 +104,7 @@ function NewDogForm({ user, onAddDog }) {
               style={{ width: 300 }}
               value={formData.breed}
               onChange={handleChange}
+              required
             />
             <br />
             <p>Age: </p>
@@ -97,6 +115,7 @@ function NewDogForm({ user, onAddDog }) {
               style={{ width: 300 }}
               value={formData.age}
               onChange={handleChange}
+              required
             />
             <br />
             <p>Introduction: </p>
@@ -107,6 +126,7 @@ function NewDogForm({ user, onAddDog }) {
               style={{ width: 600 }}
               value={formData.about}
               onChange={handleChange}
+              required
             />
             <p>
               Picture:{" "}
@@ -116,6 +136,7 @@ function NewDogForm({ user, onAddDog }) {
                 type="file"
                 name="pic"
                 onChange={handleFileChange}
+                required
               />
             </p>
             <br />
@@ -125,7 +146,7 @@ function NewDogForm({ user, onAddDog }) {
           </form>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

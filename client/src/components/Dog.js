@@ -35,7 +35,11 @@ function Dog({ user }) {
           <div className="owner">
             <div className="avatar">
               <img
-                src={dog.pic ? dog.pic : "/img/placeholderpic.png"}
+                src={
+                  dog.pic
+                    ? dog.pic
+                    : "s3://us-west-dogpod/development/attachment/752de331-58b6-4372-a870-8b87ec68c62f-placeholder.png"
+                }
                 alt={dog.name}
                 className="img-circle img-no-padding img-responsive"
               />

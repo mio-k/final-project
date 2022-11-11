@@ -90,6 +90,8 @@ function NewItemForm({ onAddItem, user }) {
             <p>
               Got a dog care item you don't need anymore? Offer it to your
               friends.
+              <br />
+              All fields are required.
             </p>
           </div>
           <form className="order-form" onSubmit={handleSubmit}>
@@ -102,6 +104,7 @@ function NewItemForm({ onAddItem, user }) {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
+                required
               />
             </p>
             <p>
@@ -114,6 +117,7 @@ function NewItemForm({ onAddItem, user }) {
                 name="description"
                 value={formData.description}
                 onChange={handleChange}
+                required
               />
             </p>
             <p>
@@ -136,6 +140,7 @@ function NewItemForm({ onAddItem, user }) {
                 name="tag_ids"
                 value={formData.tags}
                 onChange={handleChange}
+                required
               >
                 <option value="1">Walking</option>
                 <option value="3">Grooming</option>

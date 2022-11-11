@@ -50,6 +50,7 @@ function PlaydateForm({ onAddItem, user }) {
               name="when"
               value={formData.when}
               onChange={handleChange}
+              required
             />
           </p>
           <p>
@@ -61,6 +62,7 @@ function PlaydateForm({ onAddItem, user }) {
               name="howlong"
               value={formData.howlong}
               onChange={handleChange}
+              required
             />
           </p>
           <br />

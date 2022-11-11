@@ -43,9 +43,6 @@ function Playdates({ user }) {
           backgroundImage: `url(${playdatebanner})`,
         }}
       ></div>
-      {/* <div className="page-header page-header-xs" data-parallax="true">
-        <div className="filter"></div>
-      </div> */}
       <div className="section profile-content">
         <div className="container">
           <PlaydateForm user={user} onAddItem={onAddItem} />

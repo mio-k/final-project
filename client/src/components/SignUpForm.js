@@ -6,6 +6,7 @@ function SignUpForm({ onLogin }) {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
+  const [contact, setContact] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -60,6 +61,7 @@ function SignUpForm({ onLogin }) {
                       className="form-control"
                       placeholder="enter username"
                       onChange={(e) => setUsername(e.target.value)}
+                      required
                     />
                     <label htmlFor="password">Password</label>
                     <input
@@ -70,6 +72,7 @@ function SignUpForm({ onLogin }) {
                       placeholder="enter password"
                       onChange={(e) => setPassword(e.target.value)}
                       autoComplete="current-password"
+                      required
                     />
                     <label htmlFor="password">Password Confirmation</label>
                     <input
@@ -80,6 +83,7 @@ function SignUpForm({ onLogin }) {
                       placeholder="enter password again"
                       onChange={(e) => setPasswordConfirmation(e.target.value)}
                       autoComplete="current-password"
+                      required
                     />
                     <label htmlFor="firstname">First Name</label>
                     <input
@@ -89,6 +93,7 @@ function SignUpForm({ onLogin }) {
                       className="form-control"
                       placeholder="enter firstname"
                       onChange={(e) => setFirstname(e.target.value)}
+                      required
                     />
                     <label htmlFor="lastname">Last Name</label>
                     <input
@@ -98,6 +103,17 @@ function SignUpForm({ onLogin }) {
                       className="form-control"
                       placeholder="enter lastname"
                       onChange={(e) => setLastname(e.target.value)}
+                      required
+                    />
+                    <label htmlFor="lastname">Contact info</label>
+                    <input
+                      type="text"
+                      id="contact"
+                      value={contact}
+                      className="form-control"
+                      placeholder="enter your phone # or email address"
+                      onChange={(e) => setContact(e.target.value)}
+                      required
                     />
                     <button
                       className="btn btn-danger btn-block btn-round"
