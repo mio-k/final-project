@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import topbanner from "./img/topbanner.jpeg";
 
 function YourProfile({ user, items }) {
   const filteredItems = items.filter((item) => {
@@ -7,9 +8,12 @@ function YourProfile({ user, items }) {
   });
   return (
     <>
-      <div className="page-header page-header-xs" data-parallax="true">
-        <div className="filter"></div>
-      </div>
+      <div
+        className="page-header page-header-xs"
+        style={{
+          backgroundImage: `url(${topbanner})`,
+        }}
+      ></div>
       <div className="section profile-content">
         <div className="container">
           <div className="owner">

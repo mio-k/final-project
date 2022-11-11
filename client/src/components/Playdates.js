@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PlaydateForm from "./PlaydateForm";
+import playdatebanner from "./img/playdates.jpeg";
 
 function Playdates({ user }) {
   const [playdates, setPlaydates] = useState([]);
@@ -36,9 +37,15 @@ function Playdates({ user }) {
 
   return (
     <>
-      <div className="page-header page-header-xs" data-parallax="true">
+      <div
+        className="page-header page-header-small"
+        style={{
+          backgroundImage: `url(${playdatebanner})`,
+        }}
+      ></div>
+      {/* <div className="page-header page-header-xs" data-parallax="true">
         <div className="filter"></div>
-      </div>
+      </div> */}
       <div className="section profile-content">
         <div className="container">
           <PlaydateForm user={user} onAddItem={onAddItem} />

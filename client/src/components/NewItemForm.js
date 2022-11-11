@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { uploadToS3 } from "../lib/aws";
 import { createItem, getPresignedURL } from "../lib/client";
 import { saveNewItem } from "../redux/slices/itemsSlice";
-import topbanner from "./img/topbanner.jpeg";
+import freeItemBanner from "./img/freeitem.jpeg";
 
 function NewItemForm({ onAddItem, user }) {
   const file = useRef(null);
@@ -78,14 +78,11 @@ function NewItemForm({ onAddItem, user }) {
   return (
     <>
       <div
-        className="page-header page-header-xs"
-        data-parallax="true"
+        className="page-header page-header-small"
         style={{
-          backgroundImage: `url(${topbanner})`,
+          backgroundImage: `url(${freeItemBanner})`,
         }}
-      >
-        <div className="filter"></div>
-      </div>
+      ></div>
       <div className="section profile-content">
         <div className="container">
           <div className="owner">

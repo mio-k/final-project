@@ -29,9 +29,7 @@ function Dog({ user }) {
         style={{
           backgroundImage: `url(${topbanner})`,
         }}
-      >
-        <div className="filter"></div>
-      </div>
+      ></div>
       <div className="section profile-content">
         <div className="container">
           <div className="owner">
