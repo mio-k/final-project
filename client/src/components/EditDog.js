@@ -117,23 +117,6 @@ function EditDog() {
         </p>
         <br />
         <p>
-          Photo:{" "}
-          <input
-            type="text"
-            name="pic"
-            className="form-control"
-            style={{ width: 400 }}
-            value={revisedData.pic}
-            onChange={(e) =>
-              setRevisedData((previousRevisedData) => ({
-                ...previousRevisedData,
-                pic: e.target.value,
-              }))
-            }
-          />
-        </p>
-        <br />
-        <p>
           about:{" "}
           <textarea
             type="text"

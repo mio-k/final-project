@@ -1,21 +1,3 @@
-// import { createSlice } from "@reduxjs/toolkit";
-
-// const initialState = {
-//   name: "",
-//   description: "",
-//   user: "",
-//   tags: [],
-// };
-
-// const freeItemSlice = createSlice({
-//   name: "freeItem",
-//   initialState,
-//   reducers: {
-//     // To be filled in
-//   },
-// });
-// export default freeItemSlice.reducer;
-
 import {
   createAsyncThunk,
   createEntityAdapter,

@@ -80,22 +80,6 @@ function EditItem({ item, onUpdateItem }) {
           />
         </p>
         <p>
-          Photo:{" "}
-          <input
-            type="text"
-            name="description"
-            className="form-control"
-            style={{ width: 300 }}
-            value={revisedData.pic}
-            onChange={(e) =>
-              setRevisedData((previousRevisedData) => ({
-                ...previousRevisedData,
-                description: e.target.value,
-              }))
-            }
-          />
-        </p>
-        <p>
           Category (Hold Ctrl to multi-select):
           <select
             className="form-control"
