@@ -11,6 +11,12 @@ class PlaydatesController < ApplicationController
         playdate = Playdate.create!(playdate_params)
         render json: playdate, status: :created
     end
+
+    def update
+        playdate = find_playdate
+        playdate.update(playdate_params)
+        render json: playdate
+    end
     
     def destroy
         playdate = find_playdate

@@ -60,7 +60,11 @@ function YourProfile({ user }) {
               {user.items ? (
                 <ul>
                   {filteredItems.map((item) => {
-                    return <li className="list-unstyled">{item.name}</li>;
+                    return (
+                      <li className="list-unstyled" key={item.id}>
+                        {item.name}
+                      </li>
+                    );
                   })}
                 </ul>
               ) : (
