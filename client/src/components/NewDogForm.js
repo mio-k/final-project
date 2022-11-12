@@ -3,7 +3,7 @@ import { uploadToS3 } from "../lib/aws";
 import { useNavigate } from "react-router-dom";
 import topbanner from "./img/topbanner.jpeg";
 
-function NewDogForm({ user, onAddDog }) {
+function NewDogForm({ user, onAddDog, setUser }) {
   const file = useRef(null);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -51,7 +51,18 @@ function NewDogForm({ user, onAddDog }) {
             body: JSON.stringify({ ...formData, pic: location[0] }),
           })
             .then((r) => r.json())
-            .then((formData) => navigate("/doglist"));
+            .then(() => {
+              setUser((prevUser) => {
+                return {
+                  ...prevUser,
+                  dog: {
+                    ...formData,
+                    pic: location[0],
+                  },
+                };
+              });
+              navigate("/doglist");
+            });
 
           setFormData({
             name: "",

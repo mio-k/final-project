@@ -29,8 +29,11 @@ export const saveNewItem = createAsyncThunk(
 // Update Thunk
 export const updateItem = createAsyncThunk(
   "items/updateItem",
-  async ({ id, updateItemParams }) => {
-    const response = await client.updateItem(id, updateItemParams);
+  async (params) => {
+    const response = await client.updateItem(
+      params.id,
+      params.updateItemParams
+    );
     return response;
   }
 );

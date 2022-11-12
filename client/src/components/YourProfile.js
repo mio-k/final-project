@@ -1,9 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import topbanner from "./img/topbanner.jpeg";
+import { useSelector } from "react-redux";
 
-function YourProfile({ user, items }) {
-  const filteredItems = items.filter((item) => {
+function YourProfile({ user }) {
+  const itemsArray = Object.values(
+    useSelector((state) => state.items.entities)
+  );
+  const filteredItems = itemsArray.filter((item) => {
     return item.user.id === user.id;
   });
   return (
@@ -18,15 +22,15 @@ function YourProfile({ user, items }) {
         <div className="container">
           <div className="owner">
             <div className="avatar">
-              {/* <img
+              <img
                 src={
-                  user.dog.pic
+                  user.dog
                     ? user.dog.pic
-                    : "s3://us-west-dogpod/development/attachment/752de331-58b6-4372-a870-8b87ec68c62f-placeholder.png"
+                    : "https://us-west-dogpod.s3.us-west-1.amazonaws.com/development/attachment/77b4f757-04c6-4e49-a3db-0787c2fd2f1a-placeholder.png"
                 }
                 alt={user.firstname}
                 className="img-circle img-no-padding img-responsive"
-              /> */}
+              />
             </div>
             <div className="name">
               <h4 className="title">
@@ -50,7 +54,7 @@ function YourProfile({ user, items }) {
             </div>
             <div className="name">
               <h5>Free items you are offering</h5>
-              {user.item ? (
+              {user.items ? (
                 <ul>
                   {filteredItems.map((item) => {
                     return <li>{item.name}</li>;

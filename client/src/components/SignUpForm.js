@@ -25,6 +25,7 @@ function SignUpForm({ onLogin }) {
         password_confirmation: passwordConfirmation,
         firstname,
         lastname,
+        contact,
       }),
     }).then((r) => {
       setIsLoading(false);
@@ -105,7 +106,7 @@ function SignUpForm({ onLogin }) {
                       onChange={(e) => setLastname(e.target.value)}
                       required
                     />
-                    <label htmlFor="lastname">Contact info</label>
+                    <label htmlFor="contact">Contact info</label>
                     <input
                       type="text"
                       id="contact"

@@ -90,7 +90,10 @@ function App() {
             path="yourprofile"
             element={<YourProfile user={user} items={items} />}
           />
-          <Route path="newdogform" element={<NewDogForm user={user} />} />
+          <Route
+            path="newdogform"
+            element={<NewDogForm user={user} setUser={setUser} />}
+          />
           <Route path="dogs/:id/editdog" element={<EditDog />} />
         </Routes>
         <Outlet />
