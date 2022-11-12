@@ -38,11 +38,13 @@ function YourProfile({ user }) {
                 <br />
               </h4>
               <p>Contact info: {user.contact}</p>
+              <br />
               {user.dog ? (
                 <p>Dog's name: {user.dog.name}</p>
               ) : (
                 <>
                   <p>You have not added your dog to the database.</p>
+                  <br />
                   <Link
                     to={`/newdogform`}
                     className="btn btn-outline-default btn-round"
@@ -52,12 +54,13 @@ function YourProfile({ user }) {
                 </>
               )}
             </div>
+            <br />
             <div className="name">
               <h5>Free items you are offering</h5>
               {user.items ? (
                 <ul>
                   {filteredItems.map((item) => {
-                    return <li>{item.name}</li>;
+                    return <li className="list-unstyled">{item.name}</li>;
                   })}
                 </ul>
               ) : (

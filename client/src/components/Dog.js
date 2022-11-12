@@ -54,6 +54,7 @@ function Dog({ user }) {
               <p>Age: {dog.age} years old</p>
               <br />
               <p>Owner: {dog.user.firstname}</p> <br />
+              <p>Contact info: {dog.user.contact}</p> <br />
             </div>
           </div>
           <div className="row">
