@@ -30,9 +30,7 @@ function SignUpForm({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        console.log("here");
         r.json().then((user) => {
-          console.log(user);
           return onLogin(user);
         });
       } else {

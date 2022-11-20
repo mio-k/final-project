@@ -11,8 +11,6 @@ function Home() {
       .then((r) => r.json())
       .then((weather) => setWeather(weather));
   }, []);
-  console.log(weather.current);
-  // console.log(weather.current);
   return (
     <>
       <div
@@ -60,25 +58,6 @@ function Home() {
           </p>
         </div>
       </div>
-      <div className="section">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6">
-              <div className="title">
-                <h3>Walk Planner</h3>
-                {/* <p>{weather.current.temp}</p> */}
-                <br />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* <img src="http://openweathermap.org/img/wn/${weather.current.weather[0].icon}.png" />
-      <p>Temperature: {weather.current.temp} F</p>
-      <p>
-        Current condition: {weather.current.weather[0].main} -{" "}
-        {weather.current.weather[0].description}
-      </p> */}
     </>
   );
 }
