@@ -42,7 +42,7 @@ function EditItem({ item, onUpdateItem }) {
       <div style={{ textAlign: "left" }}>
         <h3>Edit Item</h3>
         {isEditing === true ? (
-          <h4>Your item is updated successfully.</h4>
+          <h2>Your item is updated successfully.</h2>
         ) : (
           <p>Make edits to your post below.</p>
         )}

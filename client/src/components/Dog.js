@@ -38,7 +38,7 @@ function Dog({ user }) {
                 src={
                   dog.pic
                     ? dog.pic
-                    : "s3://us-west-dogpod/development/attachment/752de331-58b6-4372-a870-8b87ec68c62f-placeholder.png"
+                    : "https://us-west-dogpod.s3.us-west-1.amazonaws.com/development/attachment/77b4f757-04c6-4e49-a3db-0787c2fd2f1a-placeholder.png"
                 }
                 alt={dog.name}
                 className="img-circle img-no-padding img-responsive"

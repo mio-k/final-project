@@ -30,3 +30,7 @@ Dog Pod Portal is Mio's personal project to showcase her learning. The app is se
 
 - Playdates page
   This page lets you create and post your playdate requests, as well as accept requests.
+
+## structure
+
+![image info](./public/diagram.png)
