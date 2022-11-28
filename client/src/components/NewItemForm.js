@@ -8,6 +8,7 @@ import freeItemBanner from "./img/freeitem.jpeg";
 
 function NewItemForm({ onAddItem, user }) {
   const file = useRef(null);
+  const [errors, setErrors] = useState([]);
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
@@ -61,18 +62,23 @@ function NewItemForm({ onAddItem, user }) {
         const newItemParams = { ...formData, pic: location[0] };
 
         // 3. create new item in db then add to all items
-        dispatch(saveNewItem(newItemParams));
-
-        setFormData({
-          name: "",
-          description: "",
-          pic: "",
-          tags: [],
-        });
+        dispatch(saveNewItem(newItemParams))
+          .unwrap()
+          .then((resp) => {
+            setFormData({
+              name: "",
+              description: "",
+              pic: "",
+              tags: [],
+            });
+            navigate("/itemlist");
+          })
+          .catch((error) => {
+            const errorsArray = error.errors;
+            setErrors(errorsArray);
+          });
       });
     });
-
-    navigate("/itemlist");
   }
 
   return (
@@ -93,6 +99,11 @@ function NewItemForm({ onAddItem, user }) {
               <br />
               All fields are required.
             </p>
+          </div>
+          <div>
+            {errors.map((error) => (
+              <strong>{error}</strong>
+            ))}
           </div>
           <form className="order-form" onSubmit={handleSubmit}>
             <p>

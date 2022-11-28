@@ -19,7 +19,13 @@ export const createItem = (newItemParams) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(newItemParams),
-  }).then((r) => r.json());
+  }).then((resp) => {
+    if (resp.status == 422) {
+      return resp.json().then((respJSON) => Promise.reject(respJSON));
+    } else {
+      return resp.json();
+    }
+  });
 };
 
 // ... Create

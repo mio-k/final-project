@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { updateItem } from "../redux/slices/itemsSlice";
 
-function EditItem({ item, onUpdateItem }) {
+function EditItem({ item, onSave }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [revisedData, setRevisedData] = useState({
@@ -21,6 +21,7 @@ function EditItem({ item, onUpdateItem }) {
     dispatch(updateItem({ id: item.id, updateItemParams: revisedData })).then(
       () => {
         setIsEditing(true);
+        onSave();
         navigate(`/items/${id}`);
       }
     );

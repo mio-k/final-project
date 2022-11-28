@@ -59,7 +59,11 @@ function Item({ onDeleteItem, user }) {
                     </li>
                   ))}
                 </ul>
-                {isEditing ? <EditItem item={item} /> : ""}
+                {isEditing ? (
+                  <EditItem item={item} onSave={() => setIsEditing(false)} />
+                ) : (
+                  ""
+                )}
                 {item.user.id === user.id && (
                   <>
                     <button

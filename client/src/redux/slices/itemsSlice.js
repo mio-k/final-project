@@ -2,6 +2,7 @@ import {
   createAsyncThunk,
   createEntityAdapter,
   createSlice,
+  isRejectedWithValue,
 } from "@reduxjs/toolkit";
 import * as client from "../../lib/client";
 
@@ -20,9 +21,13 @@ export const fetchItems = createAsyncThunk("items/fetchItems", async () => {
 // Create Thunk
 export const saveNewItem = createAsyncThunk(
   "items/saveNewItem",
-  async (newItemParams) => {
-    const response = await client.createItem(newItemParams);
-    return response;
+  async (newItemParams, { rejectWithValue }) => {
+    try {
+      const response = await client.createItem(newItemParams);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );
 
@@ -69,6 +74,9 @@ const itemsSlice = createSlice({
       .addCase(saveNewItem.fulfilled, (state, action) => {
         const newItem = action.payload;
         state.entities[newItem.id] = newItem;
+      })
+      .addCase(saveNewItem.rejected, (state, action) => {
+        // do nothing...
       })
       .addCase(updateItem.fulfilled, (state, action) => {
         const { id, ...changes } = action.payload;
