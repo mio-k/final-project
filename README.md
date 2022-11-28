@@ -2,15 +2,15 @@
 
 ## What this is
 
-Dog Pod Portal is Mio's personal project to showcase her learning. The app is set up using:
+Dog Pod Portal is Mio's personal project to showcase her learning. The intent of the Dog Pod Portal is to make the communication between a group of friends with dogs smoother. Currently we often send group texts to arrange playdates and offer free dog care items. With this portal, it's easier to create and manage your posts, and view others' posts and respond.
+
+The app is set up using:
 
 - React 17.0.2
 - Ruby 2.7.4
 - NodeJS(v16), and npm
 - Postgresql
 - AWS S3 bucket
-
-The intent of the Dog Pod Portal is to make the communication between a group of friends with dogs smoother. Currently we often send group texts to arrange playdates and offer free dog care items. With this portal, it's easier to create and manage your posts, and view others' posts and respond.
 
 ## To install
 
@@ -19,7 +19,7 @@ Since Dog pod portal uses an AWS S3 bucket to handle file upload, you need to pr
 1. Go to https://aws.amazon.com/ and log in (or create an account if you don't have one yet)
 2. From the Services menu on upper left, navigate to Security, Identify, & Compliance > IAM.
 3. From the left hand nav, go to Users.
-4. Add a new user with the AmazonS3FullAccess permission, then grab its access key ID.
+4. Add a new user with minimum permission required for the purpose. As long as you can manage S3 buckets that's all you need. Currently the AmazonS3FullAccess permission is available. After creating a user, download the secret access key and the grab its access key ID.
 5. From the Services menu on upper left, navigate to Storage > S3.
 6. Create a new bucket. Disable all the blocks for public access.
 7. Set the bucket policy as follows:

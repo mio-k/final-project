@@ -102,7 +102,7 @@ function NewItemForm({ onAddItem, user }) {
           </div>
           <div>
             {errors.map((error) => (
-              <strong>{error}</strong>
+              <h3>{error}</h3>
             ))}
           </div>
           <form className="order-form" onSubmit={handleSubmit}>
