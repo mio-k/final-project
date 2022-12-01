@@ -24,10 +24,10 @@ Follow the below steps to install this project.
 Also, since Dog pod portal uses an AWS S3 bucket to handle file upload, you need to provision your own S3 bucket to make it work.
 
 1. Go to https://aws.amazon.com/ and log in (or create an account if you don't have one yet)
-2. From the _Services_ menu on upper left, navigate to _Security, Identify, & Compliance_ > _IAM_.
-3. From the left hand nav, go to _Users_.
+2. From the **Services** menu on upper left, navigate to **Security, Identify, & Compliance** > **IAM**.
+3. From the left hand nav, go to **Users**.
 4. Add a new user with minimum permission required for the purpose. As long as you can manage S3 buckets that's all you need. After creating a user, download the secret access key and the grab its access key ID.
-5. From the _Services_ menu on upper left, navigate to _Storage_ > _S3_.
+5. From the **Services** menu on upper left, navigate to **Storage** > **S3**.
 6. Create a new bucket. Disable all the blocks for public access so you can accept file submission from the public.
 7. Set the bucket policy as follows:
 
