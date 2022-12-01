@@ -14,14 +14,21 @@ The app is set up using:
 
 ## To install
 
-Since Dog pod portal uses an AWS S3 bucket to handle file upload, you need to provision your own S3 bucket to make it work.
+Follow the below steps to install this project.
+
+1. Clone this repo.
+2. Run `bundle install` to install all the dependencies.
+3. Run `rails db:create` to create a database.
+4. Run `npm install --prefix client` to build frontend.
+
+Also, since Dog pod portal uses an AWS S3 bucket to handle file upload, you need to provision your own S3 bucket to make it work.
 
 1. Go to https://aws.amazon.com/ and log in (or create an account if you don't have one yet)
-2. From the Services menu on upper left, navigate to Security, Identify, & Compliance > IAM.
-3. From the left hand nav, go to Users.
-4. Add a new user with minimum permission required for the purpose. As long as you can manage S3 buckets that's all you need. Currently the AmazonS3FullAccess permission is available. After creating a user, download the secret access key and the grab its access key ID.
-5. From the Services menu on upper left, navigate to Storage > S3.
-6. Create a new bucket. Disable all the blocks for public access.
+2. From the _Services_ menu on upper left, navigate to _Security, Identify, & Compliance_ > _IAM_.
+3. From the left hand nav, go to _Users_.
+4. Add a new user with minimum permission required for the purpose. As long as you can manage S3 buckets that's all you need. After creating a user, download the secret access key and the grab its access key ID.
+5. From the _Services_ menu on upper left, navigate to _Storage_ > _S3_.
+6. Create a new bucket. Disable all the blocks for public access so you can accept file submission from the public.
 7. Set the bucket policy as follows:
 
 ```
@@ -37,20 +44,20 @@ Since Dog pod portal uses an AWS S3 bucket to handle file upload, you need to pr
                 "s3:PutObject",
                 "s3:GetObjectVersion"
             ],
-            "Resource": "arn:aws:s3:::us-west-dogpod/*"
+            "Resource": (put your S3 bucket destination info here.)
         }
     ]
 }
 ```
 
 8. Within the bucket you created, set up development > attachment folders.
-9. Access NOTES.md, and follow its instruction to set the credential settings.
-   Now the files you upload wiill be stored in the S3 bucket you set up.
+9. Access NOTES.md, and follow its instruction to add the access credentials.
+   Now the files you upload wiill be stored here.
 
 ## To start
 
-- To start the backend, run rails s
-- To start the frontend, run npm start --prefix client
+- Run `rails s` to start the backend.
+- To start the frontend, run `npm start --prefix client`.
 
 ## What it does
 

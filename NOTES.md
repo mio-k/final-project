@@ -1,21 +1,6 @@
 ## Edit credentials file
 
+Use the following command to add your security keys.
 `EDITOR="code --wait" bin/rails credentials:edit`
 
-```
-// {
-// 	"Version": "2012-10-17",
-// 	"Id": "Policy1667157930319",
-// 	"Statement": [
-// 		{
-// 			"Sid": "Stmt1667157926717",
-// 			"Effect": "Allow",
-// 			"Principal": {
-// 				"AWS": "arn:aws:iam::045140646646:user/AWS-admin"
-// 			},
-// 			"Action": "s3:*",
-// 			"Resource": "arn:aws:s3:::us-west-dogpod/*"
-// 		}
-// 	]
-// }
-```
+This will open up a yaml file to let you plug in your security keys. Save and close the yaml file.
