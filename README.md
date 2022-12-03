@@ -20,6 +20,8 @@ Follow the below steps to install this project.
 2. Run `bundle install` to install all the dependencies.
 3. Run `rails db:create` to create a database.
 4. Run `npm install --prefix client` to build frontend.
+5. Run `rails db:migrate` to execute migration.
+6. Run `rails db:seed` to populate the DB table with seed data.
 
 Also, since Dog pod portal uses an AWS S3 bucket to handle file upload, you need to provision your own S3 bucket to make it work.
 
